@@ -26,7 +26,7 @@ Here are example messages on this topic. Match their realism, not their wording:
 
 ## Output
 
-Return only a JSON array, with no other text. Each element:
+Return only a JSON array, with no other text before or after it and no code fences. Inside any text value, use single quotes (') instead of double quotes, so the JSON stays valid. Each element:
 
 {{
   "customer_message": "the message",

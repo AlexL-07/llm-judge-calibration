@@ -131,21 +131,21 @@ def main():
     parser.add_argument("--limit", type=int, help="Only grade the first N items (for a test run)")
     args = parser.parse_args()
 
-    template = (ROOT / f"prompts/judge_{args.prompt_version}.md").read_text()
-    policy = (ROOT / "rubric/policy.md").read_text()
-    rubric = (ROOT / f"rubric/rubric_{args.rubric_version}.md").read_text()
+    template = (ROOT / f"prompts/judge_{args.prompt_version}.md").read_text(encoding="utf-8")
+    policy = (ROOT / "rubric/policy.md").read_text(encoding="utf-8")
+    rubric = (ROOT / f"rubric/rubric_{args.rubric_version}.md").read_text(encoding="utf-8")
 
     items_path = ROOT / f"data/round{args.round}_items.csv"
     out_path = ROOT / f"data/round{args.round}_judge_outputs.csv"
 
-    with open(items_path, newline="") as f:
+    with open(items_path, newline="", encoding="utf-8") as f:
         items = list(csv.DictReader(f))
     if args.limit:
         items = items[: args.limit]
         out_path = ROOT / f"data/round{args.round}_judge_outputs_test.csv"
 
     fields = ["item_id", "judge", "accuracy", "resolution", "tone", "verdict", "reason", "raw"]
-    with open(out_path, "w", newline="") as f:
+    with open(out_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fields)
         writer.writeheader()
         for item in items:

@@ -1,18 +1,22 @@
 """Generate the 75 LLM-written customer messages, topic by topic.
 
 Usage:
-    python scripts/generate_messages.py            # full run, 75 messages
-    python scripts/generate_messages.py --dry-run  # print one prompt, no API call
+    python scripts/generate_messages.py                       # all topics
+    python scripts/generate_messages.py --topics late_box allergy   # only these
+    python scripts/generate_messages.py --dry-run             # print one prompt, no API call
 
 Reads:   data/seed_messages.csv, rubric/policy.md, prompts/message_generation.md
 Writes:  data/generated_messages.csv
 
+Rerunning with --topics replaces only those topics in the CSV and keeps the
+rest. If a topic still fails after 3 tries, the raw model output is saved to
+data/debug/ so you can see what went wrong.
+
 The generator is Claude Haiku. It is not one of the three judges, but it is
 from the same company as the Claude judge, so the writeup notes this and
 compares the Claude judge's results on seed vs generated messages.
-Review every generated message by hand
-before using it, and fix or replace any that are unrealistic or that
-mislabel the correct handling.
+Review every generated message by hand before using it, and fix or replace
+any that are unrealistic or that mislabel the correct handling.
 """
 
 import argparse
@@ -26,7 +30,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
+OUT_PATH = ROOT / "data/generated_messages.csv"
+DEBUG_DIR = ROOT / "data/debug"
 GENERATOR_MODEL = "claude-haiku-5-5"
+MAX_TOKENS = 8000
+TRIES = 3
+FIELDS = ["gen_id", "topic", "customer_message", "correct_handling", "why_its_tricky"]
 
 # How many new messages per topic. Roughly matches the seed mix and adds up to 75.
 TOPICS = {
@@ -42,8 +51,19 @@ TOPICS = {
 }
 
 
+def read_text(path):
+    return Path(path).read_text(encoding="utf-8")
+
+
 def load_seeds():
-    with open(ROOT / "data/seed_messages.csv", newline="") as f:
+    with open(ROOT / "data/seed_messages.csv", newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def load_existing():
+    if not OUT_PATH.exists():
+        return []
+    with open(OUT_PATH, newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
 
 
@@ -63,17 +83,50 @@ def build_prompt(template, policy, topic, count, description, seeds):
 
 
 def parse_array(text):
-    start, end = text.index("["), text.rindex("]") + 1
-    return json.loads(text[start:end])
+    """Find the first valid JSON array in the response, ignoring any extra text
+    or ```json fences around it. Raises ValueError if there is none."""
+    decoder = json.JSONDecoder()
+    i = text.find("[")
+    while i != -1:
+        try:
+            value, _ = decoder.raw_decode(text, i)
+            if isinstance(value, list) and value and isinstance(value[0], dict):
+                return value
+        except json.JSONDecodeError:
+            pass
+        i = text.find("[", i + 1)
+    raise ValueError("no JSON array found")
+
+
+def generate_topic(client, prompt, topic):
+    """Call the model up to TRIES times. Returns a list of items, or None."""
+    for attempt in range(1, TRIES + 1):
+        resp = client.messages.create(
+            model=GENERATOR_MODEL,
+            max_tokens=MAX_TOKENS,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        text = "".join(b.text for b in resp.content if b.type == "text")
+        try:
+            return parse_array(text)
+        except ValueError:
+            DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+            debug_file = DEBUG_DIR / f"{topic}_attempt{attempt}.txt"
+            debug_file.write_text(
+                f"stop_reason: {resp.stop_reason}\n\n{text}", encoding="utf-8"
+            )
+            print(f"  {topic}: attempt {attempt} unreadable (stop_reason: {resp.stop_reason})")
+    return None
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--topics", nargs="+", choices=list(TOPICS), help="Only (re)generate these topics")
     args = parser.parse_args()
 
-    template = (ROOT / "prompts/message_generation.md").read_text()
-    policy = (ROOT / "rubric/policy.md").read_text()
+    template = read_text(ROOT / "prompts/message_generation.md")
+    policy = read_text(ROOT / "rubric/policy.md")
     seeds = load_seeds()
 
     if args.dry_run:
@@ -81,23 +134,22 @@ def main():
         print(build_prompt(template, policy, topic, count, desc, seeds))
         return
 
+    selected = args.topics or list(TOPICS)
+    # Keep rows for topics we are not regenerating.
+    kept = [r for r in load_existing() if r["topic"] not in selected] if args.topics else []
+    new_rows, failed = [], []
+
     client = anthropic.Anthropic()
-    rows = []
-    for topic, (count, desc) in TOPICS.items():
+    for topic in selected:
+        count, desc = TOPICS[topic]
         prompt = build_prompt(template, policy, topic, count, desc, seeds)
-        resp = client.messages.create(
-            model=GENERATOR_MODEL,
-            max_tokens=4000,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = "".join(b.text for b in resp.content if b.type == "text")
-        try:
-            items = parse_array(text)
-        except (ValueError, json.JSONDecodeError):
-            print(f"{topic}: could not parse output, rerun this topic")
+        items = generate_topic(client, prompt, topic)
+        if items is None:
+            failed.append(topic)
+            print(f"{topic}: FAILED after {TRIES} tries, see data/debug/")
             continue
         for i, item in enumerate(items[:count], start=1):
-            rows.append(
+            new_rows.append(
                 {
                     "gen_id": f"G-{topic}-{i:02d}",
                     "topic": topic,
@@ -108,14 +160,16 @@ def main():
             )
         print(f"{topic}: {min(len(items), count)} of {count}")
 
-    out = ROOT / "data/generated_messages.csv"
-    with open(out, "w", newline="") as f:
-        writer = csv.DictWriter(
-            f, fieldnames=["gen_id", "topic", "customer_message", "correct_handling", "why_its_tricky"]
-        )
+    order = {t: n for n, t in enumerate(TOPICS)}
+    rows = sorted(kept + new_rows, key=lambda r: (order[r["topic"]], r["gen_id"]))
+    with open(OUT_PATH, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=FIELDS)
         writer.writeheader()
         writer.writerows(rows)
-    print(f"Wrote {len(rows)} messages to {out.relative_to(ROOT)}")
+    print(f"Wrote {len(rows)} messages to {OUT_PATH.relative_to(ROOT)}")
+    if failed:
+        print("Still failing: " + " ".join(failed))
+        print("Rerun with: python scripts/generate_messages.py --topics " + " ".join(failed))
 
 
 if __name__ == "__main__":
