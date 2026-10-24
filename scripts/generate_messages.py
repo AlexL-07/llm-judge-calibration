@@ -7,8 +7,10 @@ Usage:
 Reads:   data/seed_messages.csv, rubric/policy.md, prompts/message_generation.md
 Writes:  data/generated_messages.csv
 
-The generator is a model that is NOT one of the three judges, so no judge
-grades data its own model wrote. Review every generated message by hand
+The generator is Claude Haiku. It is not one of the three judges, but it is
+from the same company as the Claude judge, so the writeup notes this and
+compares the Claude judge's results on seed vs generated messages.
+Review every generated message by hand
 before using it, and fix or replace any that are unrealistic or that
 mislabel the correct handling.
 """

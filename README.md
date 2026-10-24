@@ -15,7 +15,7 @@ A small, solo evaluation project: can AI judges grade customer support replies t
 ```
 data/        Customer messages, AI replies, gold labels, and judge outputs (CSV)
 rubric/      Company policy, rubric versions, and the changelog between them
-prompts/     Prompts used to generate replies and to instruct the AI judges
+prompts/     Prompts used to generate customer messages and replies, and to instruct the AI judges
 scripts/     Python scripts that call model APIs and save results
 analysis/    Notebook and SQL queries for agreement metrics and charts
 ```
@@ -57,6 +57,13 @@ python scripts/run_judges.py --round 1             # full run
 | Google | `gemini-3.8-flash` |
 
 Each is its provider's mid-tier model, so no judge has an unfair size advantage.
+
+## Dataset
+
+- 25 seed messages written by hand (`data/seed_messages.csv`), covering every policy rule.
+- 75 messages generated with `claude-haiku-5-5` (`scripts/generate_messages.py`), using the seeds as examples, then reviewed and corrected by hand.
+
+Known limitation: the generator and the Claude judge come from the same company. To check for bias, I compare the Claude judge's agreement on seed messages vs generated messages.
 
 ## Results
 
