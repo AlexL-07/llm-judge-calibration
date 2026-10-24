@@ -42,7 +42,20 @@ analysis/    Notebook and SQL queries for agreement metrics and charts
 ```bash
 pip install -r requirements.txt
 cp .env.example .env   # then add your API keys
+
+python scripts/run_judges.py --round 1 --limit 5   # test run on 5 items
+python scripts/run_judges.py --round 1             # full run
 ```
+
+## Judges
+
+| Provider | Model |
+| --- | --- |
+| Anthropic | `claude-sonnet-5-5` |
+| OpenAI | `gpt-6-sol` |
+| Google | `gemini-3.8-flash` |
+
+Each is its provider's mid-tier model, so no judge has an unfair size advantage.
 
 ## Results
 
