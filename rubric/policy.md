@@ -10,5 +10,5 @@ Fernleaf Kitchen is a fictional meal kit delivery company. Every reply is judged
 | Spoiled box (arrived warm) | Full refund to original payment method, no photo required. |
 | Skip or cancel | Must be done by 11:59pm Pacific, 6 days before delivery day. After that, the week's box is charged. |
 | Allergies | Fernleaf cannot guarantee any meal is allergen-free. Agents must never say a meal is safe for an allergy. They point to the ingredient list and allergen label. |
-| Agent credit limit | Agents can issue up to $30 in credit on their own. Above $30, they escalate to a supervisor and tell the customer to expect a reply within 1 business day. |
+| Agent credit limit | Agents can issue up to $30 in credit on their own. Above $30, they escalate to a supervisor and tell the customer to expect a reply within 1 business day. Exception: late-box credit (more than 1 day late) does not count toward the limit and never needs escalation. |
 | Not covered by policy | Agents must not invent policy. They say they will check and follow up, or escalate. |
