@@ -43,6 +43,7 @@ analysis/    Notebook and SQL queries for agreement metrics and charts
 pip install -r requirements.txt
 cp .env.example .env   # then add your API keys
 
+python scripts/generate_messages.py                # 75 generated customer messages
 python scripts/run_judges.py --round 1 --limit 5   # test run on 5 items
 python scripts/run_judges.py --round 1             # full run
 ```
