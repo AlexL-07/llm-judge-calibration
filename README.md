@@ -43,7 +43,10 @@ analysis/    Notebook and SQL queries for agreement metrics and charts
 pip install -r requirements.txt
 cp .env.example .env   # then add your API keys
 
+python scripts/check_keys.py                       # confirm every key and model works
 python scripts/generate_messages.py                # 75 generated customer messages
+python scripts/generate_replies.py                 # one AI reply per message
+python scripts/split_rounds.py                     # round 1 and 2 files + blank gold sheets
 python scripts/run_judges.py --round 1 --limit 5   # test run on 5 items
 python scripts/run_judges.py --round 1             # full run
 ```
@@ -63,7 +66,9 @@ Each is its provider's mid-tier model, so no judge has an unfair size advantage.
 - 25 seed messages written by hand (`data/seed_messages.csv`), covering every policy rule.
 - 75 messages generated with `claude-haiku-5-5` (`scripts/generate_messages.py`), using the seeds as examples, then reviewed and corrected by hand.
 
-Known limitation: the generator and the Claude judge come from the same company. To check for bias, I compare the Claude judge's agreement on seed messages vs generated messages.
+Replies are written in three styles (careful, rushed, generous) so quality varies naturally. Each reply is written by the small model from one of the three judge providers (`claude-haiku-5-5`, `gpt-6-luna`, `gemini-3.5-flash-lite`), rotated evenly, so I can check whether each judge favors replies from its own company.
+
+Known limitation: the message generator and the Claude judge come from the same company. To check for bias, I compare the Claude judge's agreement on seed messages vs generated messages.
 
 ## Results
 

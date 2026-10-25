@@ -31,7 +31,7 @@ JUDGES = {
     "gemini": "gemini-3.8-flash",
 }
 
-MAX_TOKENS = 400
+MAX_TOKENS = 2000  # roomy, since some models spend tokens thinking before they answer
 _clients = {}
 
 
@@ -59,13 +59,13 @@ def build_prompt(template, policy, rubric, message, reply):
     )
 
 
-def _call_once(judge, model, prompt, use_temperature):
+def _call_once(judge, model, prompt, use_temperature, max_tokens=MAX_TOKENS, json_mode=True):
     client = _client(judge)
     if judge == "claude":
         kwargs = {"temperature": 0} if use_temperature else {}
         resp = client.messages.create(
             model=model,
-            max_tokens=MAX_TOKENS,
+            max_tokens=max_tokens,
             messages=[{"role": "user", "content": prompt}],
             **kwargs,
         )
@@ -75,7 +75,7 @@ def _call_once(judge, model, prompt, use_temperature):
         resp = client.responses.create(
             model=model,
             input=prompt,
-            max_output_tokens=MAX_TOKENS,
+            max_output_tokens=max_tokens,
             **kwargs,
         )
         return resp.output_text
@@ -83,27 +83,30 @@ def _call_once(judge, model, prompt, use_temperature):
         from google.genai import types
 
         config = types.GenerateContentConfig(
-            max_output_tokens=MAX_TOKENS,
+            max_output_tokens=max_tokens,
             temperature=0 if use_temperature else None,
-            response_mime_type="application/json",
+            response_mime_type="application/json" if json_mode else None,
         )
         resp = client.models.generate_content(model=model, contents=prompt, config=config)
         return resp.text
     raise ValueError(f"Unknown judge: {judge}")
 
 
-def call_judge(judge, model, prompt, retries=3):
+def call_judge(judge, model, prompt, retries=3, max_tokens=MAX_TOKENS, json_mode=True, temperature_zero=True):
     """Call one model and return its raw text response.
+
+    Also used by generate_replies.py, which passes json_mode=False and
+    temperature_zero=False to get natural, varied replies.
 
     Uses temperature 0 so results are as repeatable as possible. Some newer
     models reject a temperature setting, so if the API complains about it,
     the call is retried without one. Other errors (rate limits, timeouts)
     are retried a few times with a growing wait.
     """
-    use_temperature = True
+    use_temperature = temperature_zero
     for attempt in range(retries):
         try:
-            return _call_once(judge, model, prompt, use_temperature)
+            return _call_once(judge, model, prompt, use_temperature, max_tokens, json_mode)
         except Exception as e:  # each SDK raises its own error types
             if use_temperature and "temperature" in str(e).lower():
                 use_temperature = False
