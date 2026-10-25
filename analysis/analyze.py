@@ -2,6 +2,7 @@
 
 Usage:
     python analysis/analyze.py --round 1
+    python analysis/analyze.py --round 1 --exclude G-late_box-09   # leave out bad items
 
 Reads:   data/round{N}_gold.csv, data/round{N}_judge_outputs.csv, data/round{N}_items.csv
 Writes:  analysis/round{N}_report.md          (the numbers, ready to read or paste)
@@ -23,10 +24,14 @@ DIMS = ["accuracy", "resolution", "tone"]
 SCORE_COLS = DIMS + ["verdict"]
 
 
-def load(round_n):
+def load(round_n, exclude=()):
     gold = pd.read_csv(ROOT / f"data/round{round_n}_gold.csv", dtype=str)
     judges = pd.read_csv(ROOT / f"data/round{round_n}_judge_outputs.csv", dtype=str)
     items = pd.read_csv(ROOT / f"data/round{round_n}_items.csv", dtype=str)
+    unknown = sorted(set(exclude) - set(gold["item_id"]))
+    if unknown:
+        raise SystemExit(f"--exclude names items not in round {round_n}: {', '.join(unknown)}")
+    gold, judges, items = (df[~df["item_id"].isin(exclude)] for df in (gold, judges, items))
     for df in (gold, judges):
         for d in DIMS:
             df[d] = pd.to_numeric(df[d], errors="coerce")
@@ -63,10 +68,11 @@ def table(rows, headers):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--round", type=int, required=True)
+    parser.add_argument("--exclude", nargs="+", default=[], help="Item IDs to leave out (bad items)")
     args = parser.parse_args()
     r = args.round
 
-    gold, judges, items = load(r)
+    gold, judges, items = load(r, args.exclude)
     # Parse failures are reported, then left out of the agreement numbers.
     failed = judges[judges[SCORE_COLS].isna().any(axis=1)]
     ok = judges.drop(failed.index)
@@ -75,6 +81,8 @@ def main():
     judge_names = sorted(m["judge"].unique())
 
     lines = [f"# Round {r} results", ""]
+    if args.exclude:
+        lines.append(f"Excluded as bad items: {', '.join(args.exclude)}.\n")
     lines.append(f"{len(gold)} items, {len(judge_names)} judges. "
                  f"Gold: {(gold['verdict'] == 'Pass').sum()} Pass, {(gold['verdict'] == 'Fail').sum()} Fail.")
     if len(failed):
