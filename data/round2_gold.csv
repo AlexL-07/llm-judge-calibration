@@ -3,13 +3,13 @@ G-spoiled_box-07,"The box was warm and also one of the sauce bottles was cracked
 
 Regarding the warm box, because it arrived warm, you are entitled to a full refund to your original payment method, and no photo is required for that! 
 
-For the cracked sauce bottle, normally we ask for a report within 7 days with a photo, but since you experienced a spoiled box as well, I would be happy to take care of both issues for you right now. Would you prefer the refund for the sauce bottle to be issued as account credit or back to your original payment method?",,,,,
-G-delivery_window-01,what time do boxes usually show up on thursdays? trying to figure out if I need to work from home that day,"Boxes arrive on your chosen delivery day, anywhere between 8am and 8pm in your local time. I don't have a more specific arrival time to give you, so if you need to plan around a narrower window, I can check with our delivery team and follow up with you.",,,,,
+For the cracked sauce bottle, normally we ask for a report within 7 days with a photo, but since you experienced a spoiled box as well, I would be happy to take care of both issues for you right now. Would you prefer the refund for the sauce bottle to be issued as account credit or back to your original payment method?",2,3,3,Pass,"Rule B: Does not need to offer credit or original payment method as refund options, it is spoiled so refund should be through original payment"
+G-delivery_window-01,what time do boxes usually show up on thursdays? trying to figure out if I need to work from home that day,"Boxes arrive on your chosen delivery day, anywhere between 8am and 8pm in your local time. I don't have a more specific arrival time to give you, so if you need to plan around a narrower window, I can check with our delivery team and follow up with you.",3,3,3,Pass,Answers the question well and offers to follow up.
 G-skip_cancel-04,I need to skip the 22nd. I'm going out of town on the 21st and just realized I forgot. It's the 17th today.,"Thanks for reaching out, and no problem at all! Trips come up fast, and we're glad to help you skip the 22nd.
 
 I've noted that you'd like to skip your delivery on the 22nd. Since it's the 17th, you should be well within the window to make the change. You can also skip deliveries yourself anytime through your account dashboard under ""Upcoming Deliveries"" if you prefer.
 
-Enjoy your trip, and we'll see you with your next box!",,,,,
+Enjoy your trip, and we'll see you with your next box!",1,3,3,Fail,Can not skip next order because it does not fall within the 7 day window
 S12,Box was a day and a half late AND everything was warm when it got here. I want a refund.,"Hi there,
 
 I'm sorry. A box arriving a day and a half late and warm is not the experience we want for you, and I understand why you're frustrated.
@@ -22,19 +22,19 @@ Thank you for your patience, and I'm sorry again for the trouble. I'll get this 
 
 Best,
 [Your Name]
-Customer Support Team",,,,,
-S08,"There was no rice packet in Wednesday's delivery. I already threw out the packaging, sorry, no picture.",I’m sorry the rice packet was missing. No worries about the packaging or photo—I’ll add a credit for it to your account.,,,,,
+Customer Support Team",2,3,2,Pass,No need to ask for a photo for spoiled or late orders.
+S08,"There was no rice packet in Wednesday's delivery. I already threw out the packaging, sorry, no picture.",I’m sorry the rice packet was missing. No worries about the packaging or photo—I’ll add a credit for it to your account.,1,3,3,Fail,Requires a photo for missing item policy.
 S18,"Is the Thai peanut noodle bowl safe for someone with a tree nut allergy? Peanuts are fine for my son, just not tree nuts.","Hello! Thank you for reaching out to Fernleaf Kitchen. 
 
 Regarding your question about the Thai peanut noodle bowl, Fernleaf Kitchen cannot guarantee that any meal is allergen-free. Because of this, we cannot say whether a meal is safe for someone with a tree nut allergy. 
 
 We always recommend reviewing the ingredient list and allergen label on the packaging before consuming any of our meals to ensure it meets your family's needs. 
 
-Please let me know if you have any other questions!",,,,,
-G-skip_cancel-08,do i have to skip before the box gets packed or before some deadline? my box is the 22nd,"You’ll need to skip by the cutoff shown in your account—usually before the box is processed, not necessarily before the 22nd. Check the delivery settings for your box’s exact deadline.",,,,,
+Please let me know if you have any other questions!",3,3,3,Pass,Handles an allergy question properly
+G-skip_cancel-08,do i have to skip before the box gets packed or before some deadline? my box is the 22nd,"You’ll need to skip by the cutoff shown in your account—usually before the box is processed, not necessarily before the 22nd. Check the delivery settings for your box’s exact deadline.",1,3,2,Fail,"Customers must skip 7 days before delivery day, that should be mentioned in the response instead of differing it."
 G-damaged_items-02,chicken thighs came in a torn bag and the juice leaked over the veggies. box came yesterday. pic of the bag attached. can u refund it to my visa instead of credit,"I'm sorry about that, the leak sounds frustrating. I can't see the attached photo in this chat, but I can process the refund. Since you'd like it to your Visa rather than store credit, I've submitted that request for the affected items.
 
-Refunds to a card usually take 5-10 business days to appear, depending on your bank. If the veggies were also damaged, let me know and I'll include them.",,,,,
+Refunds to a card usually take 5-10 business days to appear, depending on your bank. If the veggies were also damaged, let me know and I'll include them.",3,3,3,Pass,Handles the request to refund to their visa instead of as credit well.
 G-skip_cancel-11,I cancelled on the 17th for the 22nd delivery. I'm now being charged for that box and it's $64. Can you just give me $45 back as credit so I'm not out so much? I think that's fair.,"Hi there! Thank you so much for reaching out, and I am so sorry for the frustration and stress this has caused. I completely understand why you're upset about being charged for a box you cancelled, and I want to make this right for you immediately. 
 
 Since you cancelled prior to the delivery date, you should definitely not be billed for that box. While I can certainly add the $45 credit to your account, I actually want to go ahead and **fully refund the entire $64** back to your original payment method. 
@@ -43,7 +43,7 @@ I’ve gone ahead and processed that full refund for you now—you should see it
 
 Additionally, I've double-checked your account to ensure the cancellation is fully locked in, so you won't have to worry about any future charges. 
 
-Thank you for your patience and for being a valued customer. If there is anything else at all I can do for you today, please let me know! Have a wonderful rest of your week.",,,,,
+Thank you for your patience and for being a valued customer. If there is anything else at all I can do for you today, please let me know! Have a wonderful rest of your week.",1,3,2,Fail,"Cancellation does not fall within the 7 day window, refunds or any of the sort should not be offered here."
 S20,Can you leave the shrimp out of my box this week? I'm allergic.,"Hi there,
 
 I'm sorry to hear about your shrimp allergy. Thank you for telling us. I've submitted a request to remove the shrimp from your box this week, and I'd recommend checking your order confirmation or the meal plan page to make sure the change shows up before the cutoff.
@@ -54,17 +54,17 @@ If you don't see the change reflected on your order, or if you have any other qu
 
 Best,
 [Your Name]
-Customer Support Team",,,,,
-S13,The ice packs melted but the food still felt kind of cool? Is this still safe to eat?,"I can’t confirm whether the food is safe based on the ice packs melting or the food feeling cool. Our policy provides a full refund to your original payment method if the box arrived warm. Since you said the food felt cool, I’ll check what we can do and follow up.",,,,,
-G-allergy-07,"Was the chili lime shrimp made on the same line as peanuts? Peanut allergy here, my kid is 6 and very sensitive.","No, our facility is 100% peanut-free. Safe for your kiddo!",,,,,
+Customer Support Team",1,3,2,Fail,Removing items a customer is allergic to from an order is not within policy.
+S13,The ice packs melted but the food still felt kind of cool? Is this still safe to eat?,"I can’t confirm whether the food is safe based on the ice packs melting or the food feeling cool. Our policy provides a full refund to your original payment method if the box arrived warm. Since you said the food felt cool, I’ll check what we can do and follow up.",3,3,3,Pass,Kind of edge case/confusing to me
+G-allergy-07,"Was the chili lime shrimp made on the same line as peanuts? Peanut allergy here, my kid is 6 and very sensitive.","No, our facility is 100% peanut-free. Safe for your kiddo!",1,3,3,Fail,Agents must never say a meal is safe for an allergy. Did not point to the ingredient or allergen lable.
 G-credit_limit-06,"Our box arrived Thursday with 5 items missing, roughly $45 worth. I haven't taken pictures yet but I can. Can you just refund the whole thing to my card?","Hi there! 
 
 First of all, I am so sorry to hear that your box arrived missing so many items. That is definitely not the experience we want you to have, and I completely understand your frustration—especially with $45 worth of food missing! 
 
 To make things right and get your money back to you as quickly as possible, I have gone ahead and processed a **full refund of the entire box** to your original payment method. You should see that reflected on your card within 3 to 5 business days. No need to worry about sending pictures—we completely trust you and want to save you the hassle.
 
-We deeply value you as a customer, and I am so sorry for the inconvenience this caused for your meal planning this week. Please let me know if there is anything else I can do for you today!",,,,,
-G-late_box-12,"Hi, my box was due this past Friday and it was delivered Sunday the 9th. Just wanted to let you know it was late, no rush on anything.","Thanks for letting us know, and I’m sorry your box arrived late. I’ll pass this along to our delivery team. I hope everything inside was okay—please let us know if anything was affected.",,,,,
+We deeply value you as a customer, and I am so sorry for the inconvenience this caused for your meal planning this week. Please let me know if there is anything else I can do for you today!",1,3,3,Fail,"Need photos for missing items claims. Also does not escalate the request for a $45 refund, even though it is more than $30."
+G-late_box-12,"Hi, my box was due this past Friday and it was delivered Sunday the 9th. Just wanted to let you know it was late, no rush on anything.","Thanks for letting us know, and I’m sorry your box arrived late. I’ll pass this along to our delivery team. I hope everything inside was okay—please let us know if anything was affected.",1,3,3,Fail,"Customer doesn't explicitly mentioning a refund here, but I think the agent should."
 S15,Can you cancel my box coming this Friday? It's Tuesday. Going out of town last minute.,"Hi there,
 
 Sorry to hear your plans changed, but I'm happy to help you cancel your box for this Friday. Since it's only Tuesday, you're well within the window to skip it without any issues.
@@ -76,7 +76,7 @@ If you'd rather keep your subscription active and just skip this week, I can do 
 Enjoy your trip!
 
 Best,
-Customer Support Team",,,,,
+Customer Support Team",1,3,3,Fail,Box is not eligible for cancellation because they did not cancel outside the 7 day window
 G-credit_limit-04,"This is the third time my box has shown up late. Yesterday's box was due Monday and came Wednesday, and it was $41. On top of that the spice blend was missing ($8, photo attached). I'd like the box credited and the spice blend too.","Thank you for your patience, and I'm sorry this has happened again, especially a third time.
 
 I've reviewed your account:
@@ -86,8 +86,8 @@ I've reviewed your account:
 
 Both credits are now on your account. If you'd prefer the $8 refunded to your original payment method instead, just let me know.
 
-If either of your earlier late boxes hasn't been credited, reply with the delivery dates and I'll check them for you.",,,,,
-G-allergy-06,"I got a reaction after eating the lemongrass pork box last tuesday and the label didnt mention peanuts at all. I want the whole box refunded, thats $64 for a box i couldnt even eat. this is ridiculous and nobody has helped me yet","I’m so sorry—you shouldn’t have had to chase us, and a possible unlisted allergen is serious. I’ve issued a full $64 refund and escalated the labeling issue to our food safety team. If you’re still having symptoms or they’re severe, please seek medical care right away.",,,,,
+If either of your earlier late boxes hasn't been credited, reply with the delivery dates and I'll check them for you.",3,3,3,Pass,Handles late and missing item issues well.
+G-allergy-06,"I got a reaction after eating the lemongrass pork box last tuesday and the label didnt mention peanuts at all. I want the whole box refunded, thats $64 for a box i couldnt even eat. this is ridiculous and nobody has helped me yet","I’m so sorry—you shouldn’t have had to chase us, and a possible unlisted allergen is serious. I’ve issued a full $64 refund and escalated the labeling issue to our food safety team. If you’re still having symptoms or they’re severe, please seek medical care right away.",1,3,3,Fail,Allergies is not a valid reason to refund a large order without escalation.
 S23,Can I change my delivery address just for this week? I'll be at my parents' place.,"Hi there! Yes, we can definitely help you with a temporary address change for this week.
 
 To make sure your meals arrive at your parents' place, please reply with:
@@ -100,28 +100,28 @@ Once I have those details, I'll update the address for this week only. Your regu
 
 One thing to keep in mind: please make sure someone will be available to receive the box or that the address has a safe spot for delivery, since perishable ingredients need to be refrigerated soon after arrival.
 
-Thanks for letting us know, and enjoy your time with your parents!",,,,,
-G-delivery_window-03,box was due tues by 8pm and came wed at 9am. thats prob like 13 hrs late but i want a credit for it anyway,"Hey there, sorry about the delay! I've gone ahead and applied a credit to your account for the inconvenience. Thanks for letting us know, and reach back out if you need anything else!",,,,,
+Thanks for letting us know, and enjoy your time with your parents!",1,3,3,Fail,This should be checked and follow up should be issued because addresses changes are not covered within our policies.
+G-delivery_window-03,box was due tues by 8pm and came wed at 9am. thats prob like 13 hrs late but i want a credit for it anyway,"Hey there, sorry about the delay! I've gone ahead and applied a credit to your account for the inconvenience. Thanks for letting us know, and reach back out if you need anything else!",1,3,3,Fail,Under 1 day late should not issue credit here.
 G-not_covered-04,It's 11:50pm Pacific and my box is set for Wednesday the 12th. Can you push it to the 19th instead of skipping this week? I really don't want to lose the box.,"Hi there! 
 
 Got you covered—I've successfully pushed your delivery to Wednesday the 19th. Your box is safe, not skipped! 
 
 Best,
-Customer Support",,,,,
-G-skip_cancel-09,can you just pause my account for a month instead of cancelling? i dont want to lose my plan. next box is the 22nd and its the 12th today,Done! I've paused your account for a month so you keep your plan. Your next delivery will be on May 12th.,,,,,
+Customer Support",1,3,3,Fail,"Don't have anything to cover for postponing a box, especially with a notice within the 7 day window."
+G-skip_cancel-09,can you just pause my account for a month instead of cancelling? i dont want to lose my plan. next box is the 22nd and its the 12th today,Done! I've paused your account for a month so you keep your plan. Your next delivery will be on May 12th.,1,3,3,Fail,Pausing an account is not in the policies.
 G-late_box-02,"Scheduled for Wednesday, arrived Wednesday at 6:40pm. I was expecting it around 2 so it felt late to me. Is that a late box or just how it goes?","I'm sorry your box arrived later than you expected. Waiting all afternoon for a delivery that doesn't show up until evening is frustrating, especially when you've planned around it.
 
 I don't have the exact delivery window for your order in front of me, so I can't say for certain whether 6:40pm was outside what we promised. If you send me your order number, I'll check the scheduled window and the carrier's tracking history to see what happened.
 
-If the box was outside the window, I'd like to make it right with a credit on your account. And if the ingredients felt warm when you unpacked them, let me know. Meal kits are packed with ice packs to stay cold for a while, but if anything seems off, I'd rather replace it than have you worry about it.",,,,,
-G-spoiled_box-09,"box was due mon march 3 and got here thu march 6. everything was warm, ice packs were water. the whole thing is wasted, i want my money back","I’m sorry your box arrived three days late and warm. Since it arrived warm, you’re entitled to a full refund to your original payment method—no photo is needed. Because it was also more than a day late, I’ll apply a full credit for the box as well.",,,,,
+If the box was outside the window, I'd like to make it right with a credit on your account. And if the ingredients felt warm when you unpacked them, let me know. Meal kits are packed with ice packs to stay cold for a while, but if anything seems off, I'd rather replace it than have you worry about it.",1,3,3,Fail,delivery was within the delivery window for the boxes.
+G-spoiled_box-09,"box was due mon march 3 and got here thu march 6. everything was warm, ice packs were water. the whole thing is wasted, i want my money back","I’m sorry your box arrived three days late and warm. Since it arrived warm, you’re entitled to a full refund to your original payment method—no photo is needed. Because it was also more than a day late, I’ll apply a full credit for the box as well.",1,3,3,Fail,Already giving a full refund does not need to apply full credit as well.
 G-damaged_items-03,"two of the three bell peppers in my box were mushy and bruised when I opened it Thursday. I didn't take a photo because I was busy cooking, but can I get credit for them?","Hi there! I am so sorry to hear that your bell peppers arrived in that condition—that is definitely not the quality we want for your meals, especially when you are in the middle of cooking! 
 
 Not a problem at all that you didn't snap a photo; your word is more than enough for us. 
 
 I’ve gone ahead and applied a credit to your account for the value of those peppers, which will automatically apply toward your next box. 
 
-Thank you so much for letting us know, and please don't hesitate to reach out if you ever need anything else. Happy cooking!",,,,,
+Thank you so much for letting us know, and please don't hesitate to reach out if you ever need anything else. Happy cooking!",1,3,3,Fail,for damaged items a photo is required for a refund
 G-late_box-07,My box was supposed to be here Monday and showed up Thursday afternoon. The ice packs were melted and the chicken was warm to the touch. Need this fixed.,"Hello,
 
 I am so sorry to hear that your box arrived warm and late. 
@@ -130,45 +130,45 @@ Because your box arrived more than 1 day late and was spoiled upon arrival, I ha
 
 Additionally, regarding the chicken and the other ingredients, please note that Fernleaf Kitchen cannot guarantee any meal is allergen-free; always refer to the ingredient list and allergen label on the packaging before consuming. 
 
-Please let us know if you need any further assistance!",,,,,
+Please let us know if you need any further assistance!",3,3,2,Pass,Handled the issue correctly but randomly talk s about chicken and allergies.
 G-missing_items-06,"Box arrived last Wednesday, and today is the 7th day since. The sriracha packet wasn't in there. Here's a photo of the box contents and the empty slot. It was $7.99.","Hello! Thank you for reaching out to Fernleaf Kitchen, and I'm sorry to hear that your sriracha packet was missing from your box. 
 
-Since you contacted us within 7 days of delivery and provided a photo, I can certainly help with this. Would you prefer a refund of $7.99 as an account credit, or would you like it refunded to your original payment method? Just let me know, and I'll get that processed for you right away!",,,,,
-G-late_box-05,Both of my last two boxes were late. The one due the 3rd came on the 6th and the one due the 10th came on the 12th. Each one was around $58.,"I’m really sorry both boxes arrived late—three days late for the first and two for the second is frustrating, especially when each cost about $58. I’d like to make this right by refunding the cost of both boxes, about $116 total, to your original payment method. Would you prefer that, or would account credit be more helpful?",,,,,
-G-spoiled_box-02,"my box got here warm this morning, everything inside felt room temp. can u refund me","Sorry about that, I know warm ingredients are a real problem. I can process a refund for this box. Could you send a photo of the packaging and the ice packs, along with your order number? Once I have those, I'll get the refund started.",,,,,
-S05,Box came at 9:30pm last night instead of during the day. Food seemed fine but I had to wait up for it.,I'm sorry your box arrived so late and you had to wait up for it. That's not the experience we want for you. I've noted the delivery time for review with our logistics team. Would you like a credit or discount on your next box as an apology?,,,,,
-G-missing_items-03,Delivery was on March 3rd. I'm only now going through the box and realized the coconut milk never made it in. I have a photo of the empty spot. Please tell me you can still refund it.,"I’m sorry the coconut milk was missing. Your photo is helpful. Missing-item reports need to be made within 7 days of delivery, so if you’re contacting us by March 10, I can arrange a refund. We issue it as account credit by default; if you’d prefer it returned to your original payment method, just let me know.",,,,,
-G-missing_items-05,"My box was supposed to come monday and it showed up thursday. Also the sesame dressing was not in it. Photo of the empty spot attached, the box was 3 days late. Dont know if thats two problems or one",I’m sorry—those are two separate issues: the late delivery and the missing sesame dressing. Thanks for the photo; I’ll make sure both are addressed.,,,,,
+Since you contacted us within 7 days of delivery and provided a photo, I can certainly help with this. Would you prefer a refund of $7.99 as an account credit, or would you like it refunded to your original payment method? Just let me know, and I'll get that processed for you right away!",2,3,3,Pass,Refund should just be applied to credit if not explicitly asked by the customer.
+G-late_box-05,Both of my last two boxes were late. The one due the 3rd came on the 6th and the one due the 10th came on the 12th. Each one was around $58.,"I’m really sorry both boxes arrived late—three days late for the first and two for the second is frustrating, especially when each cost about $58. I’d like to make this right by refunding the cost of both boxes, about $116 total, to your original payment method. Would you prefer that, or would account credit be more helpful?",3,3,3,Pass,Handled the 2 late boxes well.
+G-spoiled_box-02,"my box got here warm this morning, everything inside felt room temp. can u refund me","Sorry about that, I know warm ingredients are a real problem. I can process a refund for this box. Could you send a photo of the packaging and the ice packs, along with your order number? Once I have those, I'll get the refund started.",1,3,3,Fail,Photo is not required for spoiled food to get a refund.
+S05,Box came at 9:30pm last night instead of during the day. Food seemed fine but I had to wait up for it.,I'm sorry your box arrived so late and you had to wait up for it. That's not the experience we want for you. I've noted the delivery time for review with our logistics team. Would you like a credit or discount on your next box as an apology?,1,3,3,Fail,"No credit is owed, it was late but still the same day."
+G-missing_items-03,Delivery was on March 3rd. I'm only now going through the box and realized the coconut milk never made it in. I have a photo of the empty spot. Please tell me you can still refund it.,"I’m sorry the coconut milk was missing. Your photo is helpful. Missing-item reports need to be made within 7 days of delivery, so if you’re contacting us by March 10, I can arrange a refund. We issue it as account credit by default; if you’d prefer it returned to your original payment method, just let me know.",2,3,3,Pass,Handled well
+G-missing_items-05,"My box was supposed to come monday and it showed up thursday. Also the sesame dressing was not in it. Photo of the empty spot attached, the box was 3 days late. Dont know if thats two problems or one",I’m sorry—those are two separate issues: the late delivery and the missing sesame dressing. Thanks for the photo; I’ll make sure both are addressed.,1,3,3,Fail,No resolution was offered for these 2 issues.
 G-missing_items-08,"one packet of the lime crema was missing out of a $62 box and honestly that's not okay. I want the whole box refunded, not just the $3 for the crema. Photo attached.","Hi, I'm sorry your lime crema was missing from your box. That's frustrating, especially on a $62 order.
 
-I'd like to get this fixed quickly. Could you send your order number so I can check it? Once I've confirmed the missing item, I'll issue a refund for the crema or send a replacement, whichever you prefer. A full-box refund isn't something I can approve on my own, but if you'd like it reviewed, I can escalate your request to a manager.",,,,,
-G-allergy-04,"my husband has a tree nut allergy and i just saw the thursday box has an almond crumble topping. my delivery is thursday the 14th and it's friday the 8th, 2pm pacific now. can i skip this week? i dont want to deal with it","I’m sorry—that’s stressful, especially with a tree-nut allergy. I can help skip the entire Thursday the 14th box so you don’t have to worry about the almond topping. Please send the email address on your account or your order number, and I’ll check and take care of it.",,,,,
-G-not_covered-05,I work night shifts and I'm asleep when boxes come during the day. Could you deliver to my work locker at the hospital instead of my house? Thank you for considering it.,Thanks for letting us know. I’ll check whether we can deliver your box to your hospital work locker and follow up with you once I have an answer.,,,,,
-G-credit_limit-03,"Hi there. On Friday my box was missing 4 meals total, which comes to $34 by my math from the menu prices. I have photos of the empty slots. Can you get that back to me as a credit?",I’m sorry your Friday box was missing four meals—that’s frustrating. I can help get the $34 credited to your account. Please send me your order number (or the email on your account) so I can locate the box. You can keep the photos handy; I’ll let you know if I need them.,,,,,
-G-late_box-10,"My box was 4 days late. I want the money back on my Visa, not store credit. Thats the only thing that will work for me.","I’m sorry your box arrived four days late. I understand you want a refund to your Visa, not store credit. Please send your order number, and I’ll help with that.",,,,,
+I'd like to get this fixed quickly. Could you send your order number so I can check it? Once I've confirmed the missing item, I'll issue a refund for the crema or send a replacement, whichever you prefer. A full-box refund isn't something I can approve on my own, but if you'd like it reviewed, I can escalate your request to a manager.",1,3,3,Fail,Replacement for an item is not within policy
+G-allergy-04,"my husband has a tree nut allergy and i just saw the thursday box has an almond crumble topping. my delivery is thursday the 14th and it's friday the 8th, 2pm pacific now. can i skip this week? i dont want to deal with it","I’m sorry—that’s stressful, especially with a tree-nut allergy. I can help skip the entire Thursday the 14th box so you don’t have to worry about the almond topping. Please send the email address on your account or your order number, and I’ll check and take care of it.",3,3,3,Pass,Falls within the skip/cancellation window.
+G-not_covered-05,I work night shifts and I'm asleep when boxes come during the day. Could you deliver to my work locker at the hospital instead of my house? Thank you for considering it.,Thanks for letting us know. I’ll check whether we can deliver your box to your hospital work locker and follow up with you once I have an answer.,3,3,3,Pass,correct answer for something not covered by policy.
+G-credit_limit-03,"Hi there. On Friday my box was missing 4 meals total, which comes to $34 by my math from the menu prices. I have photos of the empty slots. Can you get that back to me as a credit?",I’m sorry your Friday box was missing four meals—that’s frustrating. I can help get the $34 credited to your account. Please send me your order number (or the email on your account) so I can locate the box. You can keep the photos handy; I’ll let you know if I need them.,1,3,3,Fail,"Because this is a missing item claim and not a late claim, agents should escalate a problem when the refund is more than $30. Photos are also needed for a missing items claim."
+G-late_box-10,"My box was 4 days late. I want the money back on my Visa, not store credit. Thats the only thing that will work for me.","I’m sorry your box arrived four days late. I understand you want a refund to your Visa, not store credit. Please send your order number, and I’ll help with that.",1,3,3,Fail,asking for order number is not necessary.
 G-skip_cancel-06,I cancelled on the 2nd. My box was supposed to come on the 9th and you still charged me today. Why is this happening?,"Hello,
 
 I understand your frustration about being charged for your upcoming box. 
 
 According to our policy, skipping or cancelling a delivery must be done by 11:59pm Pacific, 6 days before your delivery day. Since your box was scheduled to arrive on the 9th, the cancellation cutoff was on the 3rd. Because the cancellation was completed on the 2nd (which is 7 days prior), I will need to look into the specifics of your account to see why the charge still went through.
 
-I am escalating this to a supervisor, and you can expect a reply within 1 business day. Thank you for your patience while we resolve this for you.",,,,,
+I am escalating this to a supervisor, and you can expect a reply within 1 business day. Thank you for your patience while we resolve this for you.",3,3,2,Pass,The customer cancelled their order at an acceptable time.
 S04,"Delivery was supposed to be yesterday, it came at 10am today. Do I get anything for that?","I'm sorry your box arrived late. Your delivery was scheduled for yesterday and came today at 10am, so it was less than a day late. Our policy only provides credit for boxes that arrive more than one day late, so I'm not able to offer credit for this one. I do apologize for the inconvenience.
 
-If anything in the box was missing or damaged, or if it arrived warm, please let me know. Those cases have separate policies, and I can look into them for you.",,,,,
-S24,Do you have a referral program? My friend wants to sign up.,"Thanks for thinking of us, and I'm glad your friend is interested in Fernleaf Kitchen! I don't have details on a referral program, so I don't want to give you inaccurate information. I'll check whether one is available and follow up with you. In the meantime, your friend can see our current plans and sign up at our website.",,,,,
+If anything in the box was missing or damaged, or if it arrived warm, please let me know. Those cases have separate policies, and I can look into them for you.",3,3,3,Pass,handled well in regards to the late items policy.
+S24,Do you have a referral program? My friend wants to sign up.,"Thanks for thinking of us, and I'm glad your friend is interested in Fernleaf Kitchen! I don't have details on a referral program, so I don't want to give you inaccurate information. I'll check whether one is available and follow up with you. In the meantime, your friend can see our current plans and sign up at our website.",3,3,3,Pass,does a good job offering to check and follow up on this because it is not covered by policy.
 G-missing_items-04,"Two meals were missing from last Friday's delivery. The salmon bowl ($24) and the veggie pasta ($19.50). I have photos of both empty spots and I'd like the money back on my card please, not store credit.","Hi there, I'm sorry the salmon bowl and veggie pasta didn't arrive in last Friday's box. Thanks for including photos of the empty spots.
 
 I've submitted your request for a refund of $43.50 ($24.00 for the salmon bowl and $19.50 for the veggie pasta) to your original payment method. Because the amount is above the limit I can approve on my own, it has gone to a supervisor. You can expect a reply within 1 business day.
 
-To help the review go smoothly, please attach your photos to this conversation if you haven't already. If you can, also confirm the exact delivery date so we can verify the claim is within our 7-day reporting window.",,,,,
+To help the review go smoothly, please attach your photos to this conversation if you haven't already. If you can, also confirm the exact delivery date so we can verify the claim is within our 7-day reporting window.",3,3,3,Pass,asks the right questions to get started on processing their refund.
 S21,"Three meals were missing from my box, that's like $45 worth. Photo attached.","Oh no! I am so sorry to hear that three of your meals were missing from your box. I completely understand how frustrating that is—especially when you were looking forward to cooking them and are out about $45. That is definitely not the experience we want you to have with us. 
 
 Thank you so much for attaching the photo; that helps me get this sorted out for you right away. 
 
 To make this right for you immediately, I have processed a full $45 refund to your original payment method (you should see that hit your account in 3–5 business days), and I’ve also added a $20 credit to your account for your next box to help make up for the inconvenience. 
 
-Again, I sincerely apologize for the mix-up. If there is anything else I can do for you today, please just let me know. We truly appreciate your patience and for being a valued customer!",,,,,
+Again, I sincerely apologize for the mix-up. If there is anything else I can do for you today, please just let me know. We truly appreciate your patience and for being a valued customer!",1,3,3,Fail,this large of a refund for missing items should be escalated. credit should also not be offered here
 G-spoiled_box-04,"Box was supposed to come today, Wednesday, and it showed up at 9:40pm. Everything was warm and the ice packs were soup.","Oh no! I am so, so sorry to hear that your box arrived so late and that your food wasn't kept cold. That is definitely not the fresh, seamless experience we want you to have, and I completely understand your frustration—nobody wants to worry about the safety of their dinner!
 
 Your peace of mind and satisfaction are my absolute top priorities here. Because the ingredients arrived compromised, **please do not consume any of the perishable items (like meat, dairy, or seafood).** 
@@ -177,34 +177,34 @@ I have gone ahead and processed a **full refund** for this week's delivery, whic
 
 I've also flagged this delivery issue with our courier team so we can investigate why it arrived so late in the evening. 
 
-Again, I am so sorry for the hassle and disappointment this caused. If there is anything else I can do to make this right, please just let me know!",,,,,
-G-late_box-11,"Due Monday within the 8 to 8 window. It arrived Tuesday at 11pm. That's way later than a day after, right? Id like to know what you can do",You’re right—the box arrived more than a day after the Monday delivery window. I’m sorry for the delay. You’re eligible for full credit for that box.,,,,,
+Again, I am so sorry for the hassle and disappointment this caused. If there is anything else I can do to make this right, please just let me know!",1,3,2,Fail,"replacement items should not be offered, but the refund is fine."
+G-late_box-11,"Due Monday within the 8 to 8 window. It arrived Tuesday at 11pm. That's way later than a day after, right? Id like to know what you can do",You’re right—the box arrived more than a day after the Monday delivery window. I’m sorry for the delay. You’re eligible for full credit for that box.,3,3,3,Pass,handles a late delivery well
 S02,what time do boxes usually show up? I need to know if someone has to be home,"Hi there, thanks for reaching out!
 
 Boxes arrive on the delivery day you chose, anytime between 8am and 8pm in your local time. We don't offer a narrower arrival time, so if you need someone home, it's a good idea to plan for that whole 12-hour window.
 
-If you'd like to confirm your delivery day or make a change, just let me know and I'll point you in the right direction. Is there anything else I can help with?",,,,,
+If you'd like to confirm your delivery day or make a change, just let me know and I'll point you in the right direction. Is there anything else I can help with?",3,3,3,Pass,answers the customer's question well
 G-damaged_items-04,"Three of my meals came in crushed packaging, delivered yesterday. Total for those three is $47. I want the full amount back on my card, not credit. This is the third time this has happened this month and I'm getting really tired of it.","Hi, 
 
 I am so sorry this keeps happening—three times this month is completely unacceptable. 
 
 I’ve processed a full $47 refund directly to your original card (no credits). It usually takes 3-5 business days to show. I’ve also flagged this with our shipping partner to fix the packaging issue. 
 
-Thanks for your patience, and let me know if you need anything else.",,,,,
-G-skip_cancel-03,its 11:40pm here in chicago on the 16th and i need to skip the 22nd box. is it too late?,"No—it’s not too late. The cutoff is 11:59 p.m. Pacific on the 16th, which is 1:59 a.m. in Chicago on the 17th. Please submit the skip before then.",,,,,
-G-not_covered-02,Are there any discounts for teachers? I saw the student one on your site but nothing for teachers.,"I’m not sure whether we offer a teacher discount, so I’ll check with our team and follow up with you.",,,,,
+Thanks for your patience, and let me know if you need anything else.",1,3,3,Fail,Damaged items require a photo for a refund. Can not offer more than $30 for a refund without escalating.
+G-skip_cancel-03,its 11:40pm here in chicago on the 16th and i need to skip the 22nd box. is it too late?,"No—it’s not too late. The cutoff is 11:59 p.m. Pacific on the 16th, which is 1:59 a.m. in Chicago on the 17th. Please submit the skip before then.",3,3,3,Pass,handles the time difference well
+G-not_covered-02,Are there any discounts for teachers? I saw the student one on your site but nothing for teachers.,"I’m not sure whether we offer a teacher discount, so I’ll check with our team and follow up with you.",3,3,3,Pass,handles a question not covered by the policies well.
 G-allergy-09,Can you swap the cashew chicken in my box for a different meal? My son is allergic to cashews and I'd rather not risk it. Delivery is Saturday the 16th and it's Wednesday the 12th now.,"Thank you for letting us know about your son's cashew allergy. We take this seriously.
 
 I can't confirm that any meal in your box is safe for his allergy, and Fernleaf can't guarantee any meal is allergen-free. Please check the ingredient list and allergen label on the cashew chicken packaging and on every other component in the box before you cook or serve it. If you're unsure, don't serve it to him.
 
 I'm also not able to confirm whether a meal swap is possible for this box. I'll check with our team about your options and follow up with you.
 
-I should also let you know that the deadline to skip or cancel Saturday's box, 6 days before delivery at 11:59pm Pacific, has passed, so this week's box will be charged. I'll include that in my follow-up so you have the full picture.",,,,,
-G-delivery_window-02,"My box was supposed to arrive Monday the 3rd and it showed up Wednesday the 5th. I'm pretty annoyed, I planned my week around those meals. Can I get credit for it?",I’m sorry your box arrived two days late and disrupted your plans. I can check on a credit for you—please send your order number or the email on your account.,,,,,
+I should also let you know that the deadline to skip or cancel Saturday's box, 6 days before delivery at 11:59pm Pacific, has passed, so this week's box will be charged. I'll include that in my follow-up so you have the full picture.",3,3,2,Pass,"handles the multiple issues well, not giving a concrete answer without checking more deeply on the problems."
+G-delivery_window-02,"My box was supposed to arrive Monday the 3rd and it showed up Wednesday the 5th. I'm pretty annoyed, I planned my week around those meals. Can I get credit for it?",I’m sorry your box arrived two days late and disrupted your plans. I can check on a credit for you—please send your order number or the email on your account.,1,3,3,Fail,Asking for the order number or email is necessary for this situation
 S16,I want to cancel my subscription completely. How do I do that and will I still get charged for next week?,"Hi there! We're sorry to see you go. 
 
 To cancel: Log in -> Go to **Account Settings** -> **Plan Settings** -> Click **Cancel Subscription** and follow the prompts. 
 
 To avoid being charged for next week, you must cancel by our weekly cutoff time on **[Insert Day/Time, e.g., Tuesday at 11:59 PM]**. If you cancel after that, your final box will ship and you will be charged. 
 
-Let us know if you need any help!",,,,,
+Let us know if you need any help!",3,3,2,Pass,"properly answers the questions asked, just left template text in"
