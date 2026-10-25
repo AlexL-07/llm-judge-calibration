@@ -1,0 +1,106 @@
+item_id,judge,accuracy,resolution,tone,verdict,reason,raw
+S14,claude,3,3,3,Pass,"The 20th delivery's skip cutoff is 11:59pm Pacific on the 14th, so skipping on the 12th is in time, and the reply correctly confirms the skip with no charge in a warm, clear message.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The 20th delivery's skip cutoff is 11:59pm Pacific on the 14th, so skipping on the 12th is in time, and the reply correctly confirms the skip with no charge in a warm, clear message.""
+}"
+S14,gpt,1,3,3,Fail,"The skip is within the cutoff and addresses the request, but the reply invents a policy by promising that deliveries will automatically resume the following week.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The skip is within the cutoff and addresses the request, but the reply invents a policy by promising that deliveries will automatically resume the following week.""
+}"
+S14,gemini,3,3,3,Pass,"The agent correctly confirmed the skip well before the 6-day cutoff and provided a clear, helpful resolution.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly confirmed the skip well before the 6-day cutoff and provided a clear, helpful resolution.""
+}"
+S10,claude,3,2,3,Pass,"The reply follows policy by honoring the card-refund request for damaged items reported with a photo within 7 days, and it is warm, but it only says the request is 'noted' and asks for extra details rather than clearly confirming the refund, so the next step is somewhat vague.","{
+  ""accuracy"": 3,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply follows policy by honoring the card-refund request for damaged items reported with a photo within 7 days, and it is warm, but it only says the request is 'noted' and asks for extra details rather than clearly confirming the refund, so the next step is somewhat vague.""
+}"
+S10,gpt,3,2,3,Pass,"The reply correctly acknowledges the requested card refund, but asks for details the customer partly provided instead of clearly starting the refund.","{
+  ""accuracy"": 3,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply correctly acknowledges the requested card refund, but asks for details the customer partly provided instead of clearly starting the refund.""
+}"
+S10,gemini,3,3,3,Pass,The agent correctly honored the request for a refund to the original payment method for damaged items reported with a photo and provided clear next steps.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly honored the request for a refund to the original payment method for damaged items reported with a photo and provided clear next steps.""
+}"
+G-not_covered-01,claude,3,2,2,Pass,"Gift cards aren't covered by policy, so saying it will check and follow up is correct and invents nothing, though the reply is a bit thin and vague on next steps (no timeframe, no warm acknowledgment of the birthday gift), which keeps Resolution and Tone at 2 without making it need changes.","{
+  ""accuracy"": 3,
+  ""resolution"": 2,
+  ""tone"": 2,
+  ""verdict"": ""Pass"",
+  ""reason"": ""Gift cards aren't covered by policy, so saying it will check and follow up is correct and invents nothing, though the reply is a bit thin and vague on next steps (no timeframe, no warm acknowledgment of the birthday gift), which keeps Resolution and Tone at 2 without making it need changes.""
+}"
+G-not_covered-01,gpt,3,3,3,Pass,The reply does not invent a gift card policy and offers to check both gift cards and delivery arrangements before following up.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply does not invent a gift card policy and offers to check both gift cards and delivery arrangements before following up.""
+}"
+G-not_covered-01,gemini,3,3,3,Pass,"Gift cards and sending one-off boxes to another address are not covered by policy, so the agent correctly followed procedure by stating they would check and follow up.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""Gift cards and sending one-off boxes to another address are not covered by policy, so the agent correctly followed procedure by stating they would check and follow up.""
+}"
+G-damaged_items-06,claude,3,3,3,Pass,"The reply applies the spoiled-box rule correctly by giving a full refund to the original card with no photo required, and it addresses the warm box, the chicken and the smashed salsa with a clear next step in a warm tone.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply applies the spoiled-box rule correctly by giving a full refund to the original card with no photo required, and it addresses the warm box, the chicken and the smashed salsa with a clear next step in a warm tone.""
+}"
+G-damaged_items-06,gpt,1,3,3,Fail,"The reply addresses the refund request, but it promises a 5–10 business-day refund timeline that Fernleaf policy does not establish.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply addresses the refund request, but it promises a 5–10 business-day refund timeline that Fernleaf policy does not establish.""
+}"
+G-damaged_items-06,gemini,3,3,3,Pass,The agent correctly followed policy by issuing a full refund to the original payment method with no photo required for a spoiled box.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly followed policy by issuing a full refund to the original payment method with no photo required for a spoiled box.""
+}"
+G-allergy-02,claude,3,2,3,Pass,"The reply never claims the meal is dairy-free, points the customer to the ingredient list and allergen label, and offers to check and follow up, which fits policy; it only loses a point on resolution because it can't directly answer the dairy question.","{
+  ""accuracy"": 3,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply never claims the meal is dairy-free, points the customer to the ingredient list and allergen label, and offers to check and follow up, which fits policy; it only loses a point on resolution because it can't directly answer the dairy question.""
+}"
+G-allergy-02,gpt,1,3,3,Fail,"The reply gives a useful next step, but it invents a blanket policy that Fernleaf cannot guarantee any meal is free of a specific ingredient, when the policy only addresses allergens.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply gives a useful next step, but it invents a blanket policy that Fernleaf cannot guarantee any meal is free of a specific ingredient, when the policy only addresses allergens.""
+}"
+G-allergy-02,gemini,3,3,3,Pass,"The agent followed policy perfectly by directing the customer to the ingredient list and allergen label, stating meals cannot be guaranteed allergen-free, and offering to check and follow up if needed.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent followed policy perfectly by directing the customer to the ingredient list and allergen label, stating meals cannot be guaranteed allergen-free, and offering to check and follow up if needed.""
+}"
