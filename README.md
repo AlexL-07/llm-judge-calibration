@@ -49,6 +49,7 @@ python scripts/generate_replies.py                 # one AI reply per message
 python scripts/split_rounds.py                     # round 1 and 2 files + blank gold sheets
 python scripts/run_judges.py --round 1 --limit 5   # test run on 5 items
 python scripts/run_judges.py --round 1             # full run
+python analysis/analyze.py --round 1               # report + disagreements file
 ```
 
 ## Judges
