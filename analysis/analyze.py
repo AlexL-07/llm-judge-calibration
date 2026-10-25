@@ -2,6 +2,7 @@
 
 Usage:
     python analysis/analyze.py --round 1
+    python analysis/analyze.py --round 2 --tag v1    # analyze a tagged judge run
     python analysis/analyze.py --round 1 --exclude G-late_box-09   # leave out bad items
 
 Reads:   data/round{N}_gold.csv, data/round{N}_judge_outputs.csv, data/round{N}_items.csv
@@ -24,9 +25,10 @@ DIMS = ["accuracy", "resolution", "tone"]
 SCORE_COLS = DIMS + ["verdict"]
 
 
-def load(round_n, exclude=()):
+def load(round_n, exclude=(), tag=""):
+    suffix = f"_{tag}" if tag else ""
     gold = pd.read_csv(ROOT / f"data/round{round_n}_gold.csv", dtype=str)
-    judges = pd.read_csv(ROOT / f"data/round{round_n}_judge_outputs.csv", dtype=str)
+    judges = pd.read_csv(ROOT / f"data/round{round_n}_judge_outputs{suffix}.csv", dtype=str)
     items = pd.read_csv(ROOT / f"data/round{round_n}_items.csv", dtype=str)
     unknown = sorted(set(exclude) - set(gold["item_id"]))
     if unknown:
@@ -69,10 +71,12 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--round", type=int, required=True)
     parser.add_argument("--exclude", nargs="+", default=[], help="Item IDs to leave out (bad items)")
+    parser.add_argument("--tag", default="", help="Read a tagged judge run, e.g. --tag v1")
     args = parser.parse_args()
     r = args.round
 
-    gold, judges, items = load(r, args.exclude)
+    gold, judges, items = load(r, args.exclude, args.tag)
+    name = f"round{r}" + (f"_{args.tag}" if args.tag else "")
     # Parse failures are reported, then left out of the agreement numbers.
     failed = judges[judges[SCORE_COLS].isna().any(axis=1)]
     ok = judges.drop(failed.index)
@@ -80,7 +84,7 @@ def main():
     m = m.merge(items[["item_id", "source", "topic", "reply_style", "reply_model"]], on="item_id", how="left")
     judge_names = sorted(m["judge"].unique())
 
-    lines = [f"# Round {r} results", ""]
+    lines = [f"# Round {r} results" + (f" ({args.tag} judge run)" if args.tag else ""), ""]
     if args.exclude:
         lines.append(f"Excluded as bad items: {', '.join(args.exclude)}.\n")
     lines.append(f"{len(gold)} items, {len(judge_names)} judges. "
@@ -168,7 +172,7 @@ def main():
               "Lowest agreement first. These topics are where to look for rubric gaps.", "",
               table(rows, ["Topic", "Items", "Verdict agree", "Accuracy agree"])]
 
-    report = ROOT / f"analysis/round{r}_report.md"
+    report = ROOT / f"analysis/{name}_report.md"
     report.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     # Disagreements file: one row per item and judge where anything differs.
@@ -186,10 +190,10 @@ def main():
     d = d.rename(columns={"reason": "judge_reason"})
     cols[cols.index("reason")] = "judge_reason"
     d.sort_values(["n_judges_disagreeing", "item_id", "judge"], ascending=[False, True, True])[cols].to_csv(
-        ROOT / f"analysis/round{r}_disagreements.csv", index=False, encoding="utf-8")
+        ROOT / f"analysis/{name}_disagreements.csv", index=False, encoding="utf-8")
 
     print("\n".join(lines))
-    print(f"\nWrote {report.relative_to(ROOT)} and analysis/round{r}_disagreements.csv "
+    print(f"\nWrote {report.relative_to(ROOT)} and analysis/{name}_disagreements.csv "
           f"({d['item_id'].nunique()} items with at least one disagreement)")
 
 

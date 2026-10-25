@@ -50,6 +50,12 @@ python scripts/split_rounds.py                     # round 1 and 2 files + blank
 python scripts/run_judges.py --round 1 --limit 5   # test run on 5 items
 python scripts/run_judges.py --round 1             # full run
 python analysis/analyze.py --round 1               # report + disagreements file
+
+# Round 2: v2 rubric, plus a v1 run on the same items to isolate the rubric's effect
+python scripts/run_judges.py --round 2 --prompt-version v2 --rubric-version v2
+python scripts/run_judges.py --round 2 --tag v1
+python analysis/analyze.py --round 2
+python analysis/compare.py 1 2:v1 2 --exclude G-late_box-09
 ```
 
 ## Judges

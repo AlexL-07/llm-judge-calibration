@@ -2,6 +2,8 @@
 
 Usage:
     python scripts/run_judges.py --round 1
+    python scripts/run_judges.py --round 2 --prompt-version v2 --rubric-version v2
+    python scripts/run_judges.py --round 2 --tag v1     # v1 rubric on round 2, saved separately
 
 Reads:   data/round{N}_items.csv   (columns: item_id, customer_message, agent_reply)
 Writes:  data/round{N}_judge_outputs.csv
@@ -132,6 +134,7 @@ def main():
     parser.add_argument("--prompt-version", default="v1")
     parser.add_argument("--rubric-version", default="v1")
     parser.add_argument("--limit", type=int, help="Only grade the first N items (for a test run)")
+    parser.add_argument("--tag", default="", help="Save to a separate file, e.g. --tag v1 writes round2_judge_outputs_v1.csv")
     args = parser.parse_args()
 
     template = (ROOT / f"prompts/judge_{args.prompt_version}.md").read_text(encoding="utf-8")
@@ -139,13 +142,14 @@ def main():
     rubric = (ROOT / f"rubric/rubric_{args.rubric_version}.md").read_text(encoding="utf-8")
 
     items_path = ROOT / f"data/round{args.round}_items.csv"
-    out_path = ROOT / f"data/round{args.round}_judge_outputs.csv"
+    suffix = f"_{args.tag}" if args.tag else ""
+    out_path = ROOT / f"data/round{args.round}_judge_outputs{suffix}.csv"
 
     with open(items_path, newline="", encoding="utf-8") as f:
         items = list(csv.DictReader(f))
     if args.limit:
         items = items[: args.limit]
-        out_path = ROOT / f"data/round{args.round}_judge_outputs_test.csv"
+        out_path = ROOT / f"data/round{args.round}_judge_outputs{suffix}_test.csv"
 
     fields = ["item_id", "judge", "accuracy", "resolution", "tone", "verdict", "reason", "raw"]
     with open(out_path, "w", newline="", encoding="utf-8") as f:
