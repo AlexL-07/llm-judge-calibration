@@ -4,6 +4,7 @@ Usage:
     python scripts/run_judges.py --round 1
     python scripts/run_judges.py --round 2 --prompt-version v2 --rubric-version v2
     python scripts/run_judges.py --round 2 --tag v1     # v1 rubric on round 2, saved separately
+    ...add --retry-errors to any of these to regrade only the rows that came back unreadable
 
 Reads:   data/round{N}_items.csv   (columns: item_id, customer_message, agent_reply)
 Writes:  data/round{N}_judge_outputs.csv
@@ -18,6 +19,7 @@ retires one.
 import argparse
 import csv
 import json
+import re
 import time
 from pathlib import Path
 
@@ -90,7 +92,7 @@ def _call_once(judge, model, prompt, use_temperature, max_tokens=MAX_TOKENS, jso
             response_mime_type="application/json" if json_mode else None,
         )
         resp = client.models.generate_content(model=model, contents=prompt, config=config)
-        return resp.text
+        return resp.text or ""  # None when the model returns no text
     raise ValueError(f"Unknown judge: {judge}")
 
 
@@ -120,12 +122,66 @@ def call_judge(judge, model, prompt, retries=3, max_tokens=MAX_TOKENS, json_mode
 
 
 def parse_output(text):
-    """Pull the JSON object out of a judge response. Returns None if it fails."""
+    """Pull the JSON object out of a judge response. Returns None if it fails
+    or if any score is missing or out of range."""
+    if not isinstance(text, str):
+        return None
     try:
         start, end = text.index("{"), text.rindex("}") + 1
-        return json.loads(text[start:end])
-    except (ValueError, json.JSONDecodeError):
+    except ValueError:
         return None
+    body = text[start:end]
+    try:
+        parsed = json.loads(body)
+    except json.JSONDecodeError:
+        # Models sometimes leave a comma after the last field, e.g. "reason": "...",}
+        try:
+            parsed = json.loads(re.sub(r",\s*([}\]])", r"\1", body))
+        except json.JSONDecodeError:
+            return None
+    if not isinstance(parsed, dict):
+        return None
+    for d in ("accuracy", "resolution", "tone"):
+        try:
+            parsed[d] = int(parsed.get(d))
+        except (TypeError, ValueError):
+            return None
+        if parsed[d] not in (1, 2, 3):
+            return None
+    verdict = str(parsed.get("verdict", "")).strip().capitalize()
+    if verdict not in ("Pass", "Fail"):
+        return None
+    parsed["verdict"] = verdict
+    return parsed
+
+
+def grade(judge, model, prompt, tries=3):
+    """Ask one judge, retrying when the answer can't be read.
+    Returns (parsed or None, raw text of the last attempt)."""
+    raw = ""
+    for _ in range(tries):
+        raw = call_judge(judge, model, prompt)
+        parsed = parse_output(raw)
+        if parsed:
+            return parsed, raw
+    return None, raw
+
+
+def make_row(item_id, judge, parsed, raw):
+    parsed = parsed or {}
+    return {
+        "item_id": item_id,
+        "judge": judge,
+        "accuracy": parsed.get("accuracy"),
+        "resolution": parsed.get("resolution"),
+        "tone": parsed.get("tone"),
+        "verdict": parsed.get("verdict"),
+        "reason": parsed.get("reason"),
+        "raw": raw,
+    }
+
+
+FIELDS = ["item_id", "judge", "accuracy", "resolution", "tone", "verdict", "reason", "raw"]
 
 
 def main():
@@ -135,6 +191,8 @@ def main():
     parser.add_argument("--rubric-version", default="v1")
     parser.add_argument("--limit", type=int, help="Only grade the first N items (for a test run)")
     parser.add_argument("--tag", default="", help="Save to a separate file, e.g. --tag v1 writes round2_judge_outputs_v1.csv")
+    parser.add_argument("--retry-errors", action="store_true",
+                        help="Only regrade rows in the existing output file that have no scores")
     args = parser.parse_args()
 
     template = (ROOT / f"prompts/judge_{args.prompt_version}.md").read_text(encoding="utf-8")
@@ -151,30 +209,43 @@ def main():
         items = items[: args.limit]
         out_path = ROOT / f"data/round{args.round}_judge_outputs{suffix}_test.csv"
 
-    fields = ["item_id", "judge", "accuracy", "resolution", "tone", "verdict", "reason", "raw"]
+    def prompt_for(item):
+        return build_prompt(template, policy, rubric, item["customer_message"], item["agent_reply"])
+
+    if args.retry_errors:
+        if not out_path.exists():
+            raise SystemExit(f"{out_path.relative_to(ROOT)} not found. Run without --retry-errors first.")
+        with open(out_path, newline="", encoding="utf-8") as f:
+            rows = list(csv.DictReader(f))
+        by_id = {i["item_id"]: i for i in items}
+        todo = [r for r in rows if not parse_output(
+            json.dumps({k: r[k] for k in ("accuracy", "resolution", "tone", "verdict")}))]
+        print(f"{len(todo)} rows to regrade")
+        for r in todo:
+            # First try re-reading the answer already saved, so no new API call is needed.
+            parsed, raw = parse_output(r["raw"]), r["raw"]
+            how = "re-read saved answer"
+            if not parsed:
+                parsed, raw = grade(r["judge"], JUDGES[r["judge"]], prompt_for(by_id[r["item_id"]]))
+                how = "asked again"
+            r.update(make_row(r["item_id"], r["judge"], parsed, raw))
+            print(f"{r['item_id']} {r['judge']}: {parsed['verdict'] + ' (' + how + ')' if parsed else 'STILL UNREADABLE'}")
+        with open(out_path, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=FIELDS)
+            writer.writeheader()
+            writer.writerows(rows)
+        return
+
     with open(out_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fields)
+        writer = csv.DictWriter(f, fieldnames=FIELDS)
         writer.writeheader()
         for item in items:
-            prompt = build_prompt(
-                template, policy, rubric, item["customer_message"], item["agent_reply"]
-            )
+            prompt = prompt_for(item)
             for judge, model in JUDGES.items():
-                raw = call_judge(judge, model, prompt)
-                parsed = parse_output(raw) or {}
-                writer.writerow(
-                    {
-                        "item_id": item["item_id"],
-                        "judge": judge,
-                        "accuracy": parsed.get("accuracy"),
-                        "resolution": parsed.get("resolution"),
-                        "tone": parsed.get("tone"),
-                        "verdict": parsed.get("verdict"),
-                        "reason": parsed.get("reason"),
-                        "raw": raw,
-                    }
-                )
-                print(f"{item['item_id']} {judge}: {parsed.get('verdict', 'PARSE ERROR')}")
+                parsed, raw = grade(judge, model, prompt)
+                writer.writerow(make_row(item["item_id"], judge, parsed, raw))
+                f.flush()
+                print(f"{item['item_id']} {judge}: {parsed['verdict'] if parsed else 'PARSE ERROR'}")
 
 
 if __name__ == "__main__":

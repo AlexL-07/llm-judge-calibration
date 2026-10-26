@@ -1,0 +1,939 @@
+item_id,judge,accuracy,resolution,tone,verdict,reason,raw
+G-spoiled_box-07,claude,2,3,3,Pass,"The reply correctly gives a full refund to the original payment method with no photo, but it wrongly frames the cracked bottle as a separate exception to the photo rule and asks about a separate refund method, when the spoiled-box refund already covers the whole box, so the rule is misstated even though the outcome is right.","{""accuracy"":2,""resolution"":3,""tone"":3,""verdict"":""Pass"",""reason"":""The reply correctly gives a full refund to the original payment method with no photo, but it wrongly frames the cracked bottle as a separate exception to the photo rule and asks about a separate refund method, when the spoiled-box refund already covers the whole box, so the rule is misstated even though the outcome is right.""}"
+G-spoiled_box-07,gpt,1,3,3,Fail,"The full spoiled-box refund already covers the cracked sauce bottle, so offering a separate refund gives compensation the policy does not provide.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The full spoiled-box refund already covers the cracked sauce bottle, so offering a separate refund gives compensation the policy does not provide.""
+}"
+G-spoiled_box-07,gemini,1,3,3,Fail,The reply offers a separate refund for the damaged item when the full refund for a warm box already covers the entire contents.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply offers a separate refund for the damaged item when the full refund for a warm box already covers the entire contents.""
+}"
+G-delivery_window-01,claude,3,3,3,Pass,"The reply correctly states the 8am-8pm delivery window, invents no policy or remedy, honestly says no narrower time is available, and offers to check and follow up, which is a clear next step, in a short, friendly reply.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply correctly states the 8am-8pm delivery window, invents no policy or remedy, honestly says no narrower time is available, and offers to check and follow up, which is a clear next step, in a short, friendly reply.""
+}"
+G-delivery_window-01,gpt,3,3,3,Pass,The reply gives the correct delivery window and offers to check and follow up about a narrower timeframe.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply gives the correct delivery window and offers to check and follow up about a narrower timeframe.""
+}"
+G-delivery_window-01,gemini,3,3,3,Pass,The reply accurately states the 8am to 8pm delivery window and appropriately offers to check and follow up with the delivery team.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply accurately states the 8am to 8pm delivery window and appropriately offers to check and follow up with the delivery team.""
+}"
+G-skip_cancel-04,claude,1,3,3,Fail,"The skip cutoff for a delivery on the 22nd was 11:59pm Pacific on the 16th, so on the 17th it is too late, yet the reply says the customer is ""well within the window"" and agrees to the skip, which waives the cutoff and gets the outcome wrong (the box would be charged).","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The skip cutoff for a delivery on the 22nd was 11:59pm Pacific on the 16th, so on the 17th it is too late, yet the reply says the customer is \""well within the window\"" and agrees to the skip, which waives the cutoff and gets the outcome wrong (the box would be charged).""
+}"
+G-skip_cancel-04,gpt,1,3,3,Fail,"The skip cutoff was the 16th, so saying the customer is still within the window incorrectly suggests the 22nd box can be skipped without charge.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The skip cutoff was the 16th, so saying the customer is still within the window incorrectly suggests the 22nd box can be skipped without charge.""
+}"
+G-skip_cancel-04,gemini,1,2,3,Fail,"The 17th is past the 6-day cutoff for a delivery on the 22nd, so claiming the customer is within the window waives the policy cutoff.","{
+  ""accuracy"": 1,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The 17th is past the 6-day cutoff for a delivery on the 22nd, so claiming the customer is within the window waives the policy cutoff.""
+}"
+S12,claude,2,3,2,Pass,"The warm box earns a full refund with no photo needed, and the reply commits to that refund, but it asks for a photo 'if you can', an unneeded requirement made optional (Accuracy 2). It also repeats its apologies and leaves the '[Your Name]' placeholder in the signature (Tone 2). Neither is an automatic Fail.","{""accuracy"":2,""resolution"":3,""tone"":2,""verdict"":""Pass"",""reason"":""The warm box earns a full refund with no photo needed, and the reply commits to that refund, but it asks for a photo 'if you can', an unneeded requirement made optional (Accuracy 2). It also repeats its apologies and leaves the '[Your Name]' placeholder in the signature (Tone 2). Neither is an automatic Fail.""}"
+S12,gpt,2,3,2,Pass,"The agent commits to the owed refund and gives a clear next step, but unnecessarily requests an optional photo, repeats the apology, and leaves a name placeholder.","{
+  ""accuracy"": 2,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent commits to the owed refund and gives a clear next step, but unnecessarily requests an optional photo, repeats the apology, and leaves a name placeholder.""
+}"
+S12,gemini,2,3,2,Fail,"The reply optionally requests an unneeded photo for a warm box and leaves placeholder template text in the sign-off, requiring edits before sending.","{
+  ""accuracy"": 2,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply optionally requests an unneeded photo for a warm box and leaves placeholder template text in the sign-off, requiring edits before sending.""
+}"
+S08,claude,1,3,3,Fail,"Policy requires a photo for missing items, and the reply waives that requirement and issues credit anyway, which is an Accuracy 1 error under rule B and an automatic Fail.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""Policy requires a photo for missing items, and the reply waives that requirement and issues credit anyway, which is an Accuracy 1 error under rule B and an automatic Fail.""
+}"
+S08,gpt,1,3,3,Fail,The reply promises credit for a missing item despite the required photo not being available.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply promises credit for a missing item despite the required photo not being available.""
+}"
+S08,gemini,1,3,3,Fail,The agent improperly waived the mandatory photo requirement for a missing item when issuing account credit.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent improperly waived the mandatory photo requirement for a missing item when issuing account credit.""
+}"
+S18,claude,3,3,3,Pass,"The reply makes no safety claim, says Fernleaf cannot guarantee any meal is allergen-free, and points the customer to the ingredient list and allergen label, which is what the allergy rule requires, and it is short, warm and complete.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply makes no safety claim, says Fernleaf cannot guarantee any meal is allergen-free, and points the customer to the ingredient list and allergen label, which is what the allergy rule requires, and it is short, warm and complete.""
+}"
+S18,gpt,3,3,3,Pass,The reply makes no allergy safety claim and directs the customer to the ingredient list and allergen label.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply makes no allergy safety claim and directs the customer to the ingredient list and allergen label.""
+}"
+S18,gemini,3,3,3,Pass,The reply correctly refuses to make an allergen safety guarantee and properly directs the customer to the ingredient list and allergen label.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply correctly refuses to make an allergen safety guarantee and properly directs the customer to the ingredient list and allergen label.""
+}"
+G-skip_cancel-08,claude,2,1,3,Fail,"The policy answer is 11:59pm Pacific, 6 days before delivery (the 16th for a box on the 22nd), but the reply never gives it, substitutes an invented 'before the box is processed' rule and an unverifiable claim about the account, and so leaves the customer's direct question unanswered.","{""accuracy"":2,""resolution"":1,""tone"":3,""verdict"":""Fail"",""reason"":""The policy answer is 11:59pm Pacific, 6 days before delivery (the 16th for a box on the 22nd), but the reply never gives it, substitutes an invented 'before the box is processed' rule and an unverifiable claim about the account, and so leaves the customer's direct question unanswered.""}"
+G-skip_cancel-08,gpt,1,3,3,Fail,"The reply gives a processing-based cutoff instead of the required deadline of 11:59pm Pacific on the 16th, which could change whether the customer is charged.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply gives a processing-based cutoff instead of the required deadline of 11:59pm Pacific on the 16th, which could change whether the customer is charged.""
+}"
+G-skip_cancel-08,gemini,1,3,3,Fail,"The reply misstates the skip deadline as being before the box is processed rather than 11:59pm Pacific six days before delivery, which could cause the customer to miss the cutoff and be charged.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply misstates the skip deadline as being before the box is processed rather than 11:59pm Pacific six days before delivery, which could cause the customer to miss the cutoff and be charged.""
+}"
+G-damaged_items-02,claude,1,3,3,Fail,"The agent says it can't see the photo yet submits the refund anyway, which waives the photo requirement for damaged items, so the reply should have asked the customer to resend the photo first (rule B), even though the Visa refund request itself is correct.","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""The agent says it can't see the photo yet submits the refund anyway, which waives the photo requirement for damaged items, so the reply should have asked the customer to resend the photo first (rule B), even though the Visa refund request itself is correct.""}"
+G-damaged_items-02,gpt,3,3,3,Pass,"The customer reported the damage within seven days with a photo, and the reply addresses the requested Visa refund while asking whether the veggies also need to be included.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The customer reported the damage within seven days with a photo, and the reply addresses the requested Visa refund while asking whether the veggies also need to be included.""
+}"
+G-damaged_items-02,gemini,1,2,3,Fail,The agent waived the required photo policy by processing the refund despite stating they could not see the attached photo.,"{
+  ""accuracy"": 1,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent waived the required photo policy by processing the refund despite stating they could not see the attached photo.""
+}"
+G-skip_cancel-11,claude,1,3,2,Fail,"The 22nd delivery's skip/cancel cutoff was 11:59pm Pacific on the 16th, so cancelling on the 17th was too late and the box is rightly charged; the reply invents an exception with a full $64 refund (above the $30 limit with no escalation) and wrongly states that cancelling before the delivery date means no charge.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The 22nd delivery's skip/cancel cutoff was 11:59pm Pacific on the 16th, so cancelling on the 17th was too late and the box is rightly charged; the reply invents an exception with a full $64 refund (above the $30 limit with no escalation) and wrongly states that cancelling before the delivery date means no charge.""
+}"
+G-skip_cancel-11,gpt,1,3,2,Fail,"The cancellation on the 17th missed the cutoff for a delivery on the 22nd, so the box remains charged; the reply incorrectly issues a $64 refund, though it addresses the request, and is noticeably wordy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The cancellation on the 17th missed the cutoff for a delivery on the 22nd, so the box remains charged; the reply incorrectly issues a $64 refund, though it addresses the request, and is noticeably wordy.""
+}"
+G-skip_cancel-11,gemini,1,3,3,Fail,The agent improperly issued a $64 refund by waiving the 6-day cancellation cutoff and exceeding the $30 limit without escalating to a supervisor.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent improperly issued a $64 refund by waiving the 6-day cancellation cutoff and exceeding the $30 limit without escalating to a supervisor.""
+}"
+S20,claude,1,3,2,Fail,"Removing an ingredient from a box is not a remedy or feature in the policy, so saying 'I've submitted a request to remove the shrimp' invents a capability (rule B), and the claim about the facility handling shellfish is unverifiable; the reply should have said it would check and follow up, though it does correctly point to the ingredient and allergen labels, and its '[Your Name]' placeholder and extra length lower Tone to 2.","{""accuracy"":1,""resolution"":3,""tone"":2,""verdict"":""Fail"",""reason"":""Removing an ingredient from a box is not a remedy or feature in the policy, so saying 'I've submitted a request to remove the shrimp' invents a capability (rule B), and the claim about the facility handling shellfish is unverifiable; the reply should have said it would check and follow up, though it does correctly point to the ingredient and allergen labels, and its '[Your Name]' placeholder and extra length lower Tone to 2.""}"
+S20,gpt,1,3,2,Fail,"The reply claims to have requested shrimp removal, a box change the policy does not offer, and its template sign-off makes the tone less polished.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply claims to have requested shrimp removal, a box change the policy does not offer, and its template sign-off makes the tone less polished.""
+}"
+S20,gemini,1,3,2,Fail,"The agent invented a feature not covered by policy by offering to remove an ingredient from the box, and left template text in the sign-off.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent invented a feature not covered by policy by offering to remove an ingredient from the box, and left template text in the sign-off.""
+}"
+S13,claude,1,3,3,Fail,"The customer said the food felt cool, not warm, so the spoiled-box refund isn't owed, yet the reply cites that refund policy and says ""I'll check what we can do,"" which hints at a remedy the policy doesn't give.","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""The customer said the food felt cool, not warm, so the spoiled-box refund isn't owed, yet the reply cites that refund policy and says \""I'll check what we can do,\"" which hints at a remedy the policy doesn't give.""}"
+S13,gpt,3,3,3,Pass,"The reply makes no unsupported safety claim, correctly limits the full refund to a box that arrived warm, and offers to check and follow up.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply makes no unsupported safety claim, correctly limits the full refund to a box that arrived warm, and offers to check and follow up.""
+}"
+S13,gemini,3,3,3,Pass,The reply accurately states the warm box policy without inventing food safety rules and provides a clear next step to check and follow up.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply accurately states the warm box policy without inventing food safety rules and provides a clear next step to check and follow up.""
+}"
+G-allergy-07,claude,1,2,3,Fail,"The reply claims the facility is 100% peanut-free and says the meal is safe for the child's peanut allergy, which is an allergy safety claim (and an invented fact) that the policy forbids; it also never points the customer to the ingredient list and allergen label, so this is an automatic Fail.","{
+  ""accuracy"": 1,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply claims the facility is 100% peanut-free and says the meal is safe for the child's peanut allergy, which is an allergy safety claim (and an invented fact) that the policy forbids; it also never points the customer to the ingredient list and allergen label, so this is an automatic Fail.""
+}"
+G-allergy-07,gpt,1,3,3,Fail,"The reply claims the shrimp is safe for a child with a peanut allergy, which policy prohibits.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply claims the shrimp is safe for a child with a peanut allergy, which policy prohibits.""
+}"
+G-allergy-07,gemini,1,3,3,Fail,The agent explicitly claimed the meal is safe for an allergy and made an unapproved safety guarantee instead of directing the customer to the ingredient list and allergen label.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent explicitly claimed the meal is safe for an allergy and made an unapproved safety guarantee instead of directing the customer to the ingredient list and allergen label.""
+}"
+G-credit_limit-06,claude,1,3,2,Fail,"The reply waives the photo requirement for missing items and refunds the entire box (over $30 of non-exempt refund) to the card without escalating, so Accuracy is 1 and it is an automatic Fail; the repeated apologies and filler also make it wordy, giving Tone 2.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply waives the photo requirement for missing items and refunds the entire box (over $30 of non-exempt refund) to the card without escalating, so Accuracy is 1 and it is an automatic Fail; the repeated apologies and filler also make it wordy, giving Tone 2.""
+}"
+G-credit_limit-06,gpt,1,3,2,Fail,"The reply processes a full-box refund for missing items without the required photo or escalation for a refund over $30, and it is noticeably wordy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply processes a full-box refund for missing items without the required photo or escalation for a refund over $30, and it is noticeably wordy.""
+}"
+G-credit_limit-06,gemini,1,3,3,Fail,The agent improperly waived the required photo and issued a non-exempt refund exceeding the $30 limit without escalating to a supervisor.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent improperly waived the required photo and issued a non-exempt refund exceeding the $30 limit without escalating to a supervisor.""
+}"
+G-late_box-12,claude,1,3,3,Fail,"Due Friday and delivered Sunday is after 8pm Saturday, so the box was more than 1 day late and full credit was owed, but the reply only apologizes and never commits to it (rule C).","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""Due Friday and delivered Sunday is after 8pm Saturday, so the box was more than 1 day late and full credit was owed, but the reply only apologizes and never commits to it (rule C).""
+}"
+G-late_box-12,gpt,1,3,3,Fail,"A box due Friday and delivered Sunday is owed full credit, but the reply does not commit to providing it.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""A box due Friday and delivered Sunday is owed full credit, but the reply does not commit to providing it.""
+}"
+G-late_box-12,gemini,1,3,3,Fail,"Because the box was delivered on Sunday when it was due on Friday, it was more than one day late and entitled to full credit, which the agent failed to provide or commit to.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""Because the box was delivered on Sunday when it was due on Friday, it was more than one day late and entitled to full credit, which the agent failed to provide or commit to.""
+}"
+S15,claude,1,3,3,Fail,"Friday delivery is only 3 days away, so the 6-day skip/cancel cutoff has passed and the box will be charged, yet the reply says the customer is ""well within the window"" and offers to cancel or skip without a charge, which waives the cutoff.","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""Friday delivery is only 3 days away, so the 6-day skip/cancel cutoff has passed and the box will be charged, yet the reply says the customer is \""well within the window\"" and offers to cancel or skip without a charge, which waives the cutoff.""}"
+S15,gpt,1,3,2,Fail,"Tuesday is past the Saturday cutoff for a Friday box, so promising to cancel or skip it without a charge is incorrect; the reply gives a clear next step but is longer than needed.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""Tuesday is past the Saturday cutoff for a Friday box, so promising to cancel or skip it without a charge is incorrect; the reply gives a clear next step but is longer than needed.""
+}"
+S15,gemini,1,3,3,Fail,The reply waives the 6-day cutoff policy by falsely stating that a Tuesday request for a Friday box is within the cancellation window.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply waives the 6-day cutoff policy by falsely stating that a Tuesday request for a Friday box is within the cancellation window.""
+}"
+G-credit_limit-04,claude,3,3,3,Pass,"The box arrived Wednesday, after 8pm Tuesday, so it was more than 1 day late and the full $41 credit is owed and exempt from the $30 limit; the $8 missing-item credit with a photo is also correct, and the reply invents nothing and offers to check the earlier boxes without promising a credit.","{""accuracy"":3,""resolution"":3,""tone"":3,""verdict"":""Pass"",""reason"":""The box arrived Wednesday, after 8pm Tuesday, so it was more than 1 day late and the full $41 credit is owed and exempt from the $30 limit; the $8 missing-item credit with a photo is also correct, and the reply invents nothing and offers to check the earlier boxes without promising a credit.""}"
+G-credit_limit-04,gpt,3,3,3,Pass,"The reply provides the owed $41 late-box credit and $8 missing-item credit, handles the customer's requests, and is warm and clear.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply provides the owed $41 late-box credit and $8 missing-item credit, handles the customer's requests, and is warm and clear.""
+}"
+G-credit_limit-04,gemini,3,3,3,Pass,"The agent correctly issued the exempt full credit for the late box and the $8 credit for the missing item with photo, matching all policy rules.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly issued the exempt full credit for the late box and the $8 credit for the missing item with photo, matching all policy rules.""
+}"
+G-allergy-06,claude,1,3,3,Fail,"The customer is owed no automatic refund because the box was not spoiled, late, or missing or damaged items, so the $64 refund is discretionary and over the $30 agent limit, and it was issued without escalating to a supervisor or giving the 1-business-day follow-up.","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""The customer is owed no automatic refund because the box was not spoiled, late, or missing or damaged items, so the $64 refund is discretionary and over the $30 agent limit, and it was issued without escalating to a supervisor or giving the 1-business-day follow-up.""}"
+G-allergy-06,gpt,1,3,3,Fail,"The reply handles the request compassionately, but it issues a $64 refund for an issue not covered by policy without the required supervisor escalation.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply handles the request compassionately, but it issues a $64 refund for an issue not covered by policy without the required supervisor escalation.""
+}"
+G-allergy-06,gemini,1,3,3,Fail,"The agent issued a $64 refund directly instead of escalating to a supervisor, violating the $30 agent credit and refund limit.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent issued a $64 refund directly instead of escalating to a supervisor, violating the $30 agent credit and refund limit.""
+}"
+S23,claude,1,3,3,Fail,"The policy says nothing about address changes, so the agent should have said it would check and follow up or escalate, but instead confidently promised a one-week address change and that the regular address would stay the same, which invents policy.","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""The policy says nothing about address changes, so the agent should have said it would check and follow up or escalate, but instead confidently promised a one-week address change and that the regular address would stay the same, which invents policy.""}"
+S23,gpt,1,3,2,Fail,"The reply promises a temporary address change that the policy does not cover, rather than saying the agent will check and follow up, and it is longer than needed.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply promises a temporary address change that the policy does not cover, rather than saying the agent will check and follow up, and it is longer than needed.""
+}"
+S23,gemini,1,3,3,Fail,The agent promises a temporary address change feature not covered by the policy instead of checking and following up or escalating.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent promises a temporary address change feature not covered by the policy instead of checking and following up or escalating.""
+}"
+G-delivery_window-03,claude,1,3,3,Fail,"The box arrived Wednesday 9am, under 1 day late by the 8pm-Tuesday rule, so only an apology is owed, and applying a credit gives a remedy the policy doesn't provide (rule B).","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The box arrived Wednesday 9am, under 1 day late by the 8pm-Tuesday rule, so only an apology is owed, and applying a credit gives a remedy the policy doesn't provide (rule B).""
+}"
+G-delivery_window-03,gpt,1,3,3,Fail,"The box arrived 13 hours after the delivery window, so the policy calls for an apology only, but the agent applied a credit.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The box arrived 13 hours after the delivery window, so the policy calls for an apology only, but the agent applied a credit.""
+}"
+G-delivery_window-03,gemini,1,3,3,Fail,"The box arrived under one day late, which only warrants an apology, so issuing an account credit violates policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The box arrived under one day late, which only warrants an apology, so issuing an account credit violates policy.""
+}"
+G-not_covered-04,claude,1,3,3,Fail,"The reply claims to have pushed the delivery to the 19th, but rescheduling is not a remedy in the policy (only skip or cancel by the cutoff), so the agent invented a feature instead of offering a skip or checking and following up.","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""The reply claims to have pushed the delivery to the 19th, but rescheduling is not a remedy in the policy (only skip or cancel by the cutoff), so the agent invented a feature instead of offering a skip or checking and following up.""}"
+G-not_covered-04,gpt,1,3,3,Fail,"The reply says the delivery was moved to the 19th, but the policy does not offer delivery rescheduling.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply says the delivery was moved to the 19th, but the policy does not offer delivery rescheduling.""
+}"
+G-not_covered-04,gemini,1,3,3,Fail,"The reply grants a delivery push/reschedule, which is a feature and remedy not provided for under company policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply grants a delivery push/reschedule, which is a feature and remedy not provided for under company policy.""
+}"
+G-skip_cancel-09,claude,1,3,3,Fail,"Subscription pauses are not in the policy (clarification 4), so the agent invented a feature and said it was done; the customer's box on the 22nd is 10 days out, so a skip would have been available, but the reply doesn't offer one.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""Subscription pauses are not in the policy (clarification 4), so the agent invented a feature and said it was done; the customer's box on the 22nd is 10 days out, so a skip would have been available, but the reply doesn't offer one.""
+}"
+G-skip_cancel-09,gpt,1,3,3,Fail,"The reply claims to have paused the account, but subscription pauses are not offered under the policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply claims to have paused the account, but subscription pauses are not offered under the policy.""
+}"
+G-skip_cancel-09,gemini,1,3,3,Fail,"The agent granted an account pause, which is a feature not offered under company policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent granted an account pause, which is a feature not offered under company policy.""
+}"
+G-late_box-02,claude,1,2,2,Fail,"The box arrived Wednesday 6:40pm, within the 8am-8pm window on the scheduled day, so it was not late and only an apology is owed; the reply instead hints at a credit if it was outside the window and offers to replace items, which the policy doesn't provide.","{
+  ""accuracy"": 1,
+  ""resolution"": 2,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The box arrived Wednesday 6:40pm, within the 8am-8pm window on the scheduled day, so it was not late and only an apology is owed; the reply instead hints at a credit if it was outside the window and offers to replace items, which the policy doesn't provide.""
+}"
+G-late_box-02,gpt,1,3,2,Fail,"The box arrived within the 8am–8pm window, but the reply suggests a credit for being outside the window and offers a replacement for warm ingredients, neither of which matches policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The box arrived within the 8am–8pm window, but the reply suggests a credit for being outside the window and offers a replacement for warm ingredients, neither of which matches policy.""
+}"
+G-late_box-02,gemini,1,2,3,Fail,"The reply offers replacement items and hints at account credit for a delivery within the standard 8am to 8pm window, neither of which is permitted by policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply offers replacement items and hints at account credit for a delivery within the standard 8am to 8pm window, neither of which is permitted by policy.""
+}"
+G-spoiled_box-09,claude,1,3,3,Fail,"The full refund to the original payment method is correct for the warm box, but the reply also promises a full late-box credit 'as well,' which double-compensates the same box; the worked example with a late, warm box gives the refund alone.","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""The full refund to the original payment method is correct for the warm box, but the reply also promises a full late-box credit 'as well,' which double-compensates the same box; the worked example with a late, warm box gives the refund alone.""}"
+G-spoiled_box-09,gpt,1,3,3,Fail,"The full refund to the original payment method is correct, but promising an additional full credit for the same warm box gives compensation the policy does not provide.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The full refund to the original payment method is correct, but promising an additional full credit for the same warm box gives compensation the policy does not provide.""
+}"
+G-spoiled_box-09,gemini,1,3,3,Fail,The agent offered extra compensation not permitted by policy by issuing both a full refund and a full credit for the same box.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent offered extra compensation not permitted by policy by issuing both a full refund and a full credit for the same box.""
+}"
+G-damaged_items-03,claude,1,3,2,Fail,"The reply waives the photo requirement for damaged items ('your word is more than enough'), which is an Accuracy 1 error under rule B. The arrival of the pepper in a damaged state does not qualify as a spoiled (warm) box, so the photo is still required. Tone is a 2 because the reply is wordy and over-scripted.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply waives the photo requirement for damaged items ('your word is more than enough'), which is an Accuracy 1 error under rule B. The arrival of the pepper in a damaged state does not qualify as a spoiled (warm) box, so the photo is still required. Tone is a 2 because the reply is wordy and over-scripted.""
+}"
+G-damaged_items-03,gpt,1,3,2,Fail,The reply resolves the request but incorrectly waives the required photo for damaged items and is noticeably wordy.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply resolves the request but incorrectly waives the required photo for damaged items and is noticeably wordy.""
+}"
+G-damaged_items-03,gemini,1,3,3,Fail,"The reply waives the required photo for damaged items and issues credit without it, which is an explicit Accuracy 1 policy violation.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply waives the required photo for damaged items and issues credit without it, which is an explicit Accuracy 1 policy violation.""
+}"
+G-late_box-07,claude,3,3,2,Pass,"The box was due Monday and arrived Thursday, so it was more than 1 day late and also arrived warm, and the reply correctly gives a full refund to the original payment method with no photo or escalation, while the unrequested allergen paragraph makes no safety claim but adds irrelevant policy text that makes the tone only a 2.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The box was due Monday and arrived Thursday, so it was more than 1 day late and also arrived warm, and the reply correctly gives a full refund to the original payment method with no photo or escalation, while the unrequested allergen paragraph makes no safety claim but adds irrelevant policy text that makes the tone only a 2.""
+}"
+G-late_box-07,gpt,3,3,2,Pass,"The full refund correctly resolves the warm, late box, but the unrelated allergy guidance makes the reply longer than needed.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The full refund correctly resolves the warm, late box, but the unrelated allergy guidance makes the reply longer than needed.""
+}"
+G-late_box-07,gemini,3,3,2,Pass,"The agent correctly issued a full refund to the original payment method for the spoiled box, but needlessly included an allergy disclaimer that the customer did not ask about.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly issued a full refund to the original payment method for the spoiled box, but needlessly included an allergy disclaimer that the customer did not ask about.""
+}"
+G-missing_items-06,claude,3,3,3,Pass,"The report is within 7 days with a photo, so the $7.99 refund is owed and under the $30 limit, and the reply commits to it and asks the customer to choose between account credit and the original payment method, which the policy allows.","{""accuracy"":3,""resolution"":3,""tone"":3,""verdict"":""Pass"",""reason"":""The report is within 7 days with a photo, so the $7.99 refund is owed and under the $30 limit, and the reply commits to it and asks the customer to choose between account credit and the original payment method, which the policy allows.""}"
+G-missing_items-06,gpt,3,3,3,Pass,The reply offers the correct $7.99 remedy for a missing item reported with a photo within seven days and asks the customer which refund method they prefer.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply offers the correct $7.99 remedy for a missing item reported with a photo within seven days and asks the customer which refund method they prefer.""
+}"
+G-missing_items-06,gemini,3,3,3,Pass,"The reply correctly validates the 7-day reporting window and photo, staying within the credit limit while offering the approved refund options.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply correctly validates the 7-day reporting window and photo, staying within the credit limit while offering the approved refund options.""
+}"
+G-late_box-05,claude,3,3,3,Pass,"Both boxes arrived more than 1 day late (the 6th is after 8pm on the 4th, and the 12th is after 8pm on the 11th), so full credit for each (~$116) is owed. Late-box credit is exempt from the $30 limit, so no escalation is needed. The reply commits to the full amount, asks the customer which method they prefer, and is warm and concise.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""Both boxes arrived more than 1 day late (the 6th is after 8pm on the 4th, and the 12th is after 8pm on the 11th), so full credit for each (~$116) is owed. Late-box credit is exempt from the $30 limit, so no escalation is needed. The reply commits to the full amount, asks the customer which method they prefer, and is warm and concise.""
+}"
+G-late_box-05,gpt,1,3,3,Fail,"Both boxes qualify for full account credit, but the reply offers a refund to the original payment method, which the late-box policy does not provide.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""Both boxes qualify for full account credit, but the reply offers a refund to the original payment method, which the late-box policy does not provide.""
+}"
+G-late_box-05,gemini,1,3,3,Fail,"The policy provides account credit for late boxes rather than a refund to the original payment method, and offering a $116 cash refund violates the policy and exceeds the $30 limit without escalation.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The policy provides account credit for late boxes rather than a refund to the original payment method, and offering a $116 cash refund violates the policy and exceeds the $30 limit without escalation.""
+}"
+G-spoiled_box-02,claude,1,3,3,Fail,"A warm box is owed a full refund to the original payment method with no photo required, but the reply makes the refund wait on a photo of the packaging and ice packs, which adds a requirement the policy doesn't have and isn't optional.","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""A warm box is owed a full refund to the original payment method with no photo required, but the reply makes the refund wait on a photo of the packaging and ice packs, which adds a requirement the policy doesn't have and isn't optional.""}"
+G-spoiled_box-02,gpt,1,3,3,Fail,"A warm box qualifies for a full refund without a photo, but the reply makes sending photos a condition of processing it.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""A warm box qualifies for a full refund without a photo, but the reply makes sending photos a condition of processing it.""
+}"
+G-spoiled_box-02,gemini,1,3,3,Fail,"The reply incorrectly requires the customer to provide a photo before issuing a refund for a warm box, which policy explicitly states does not require a photo.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply incorrectly requires the customer to provide a photo before issuing a refund for a warm box, which policy explicitly states does not require a photo.""
+}"
+S05,claude,1,3,3,Fail,"The box arrived 9:30pm on the delivery day, which is same-day late and owed an apology only, but the reply offers a credit or discount on the next box, which is a remedy the policy doesn't give (rule B and clarification 4).","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""The box arrived 9:30pm on the delivery day, which is same-day late and owed an apology only, but the reply offers a credit or discount on the next box, which is a remedy the policy doesn't give (rule B and clarification 4).""}"
+S05,gpt,1,3,3,Fail,"A 9:30pm arrival calls for an apology only, so offering a credit or discount is not allowed by policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""A 9:30pm arrival calls for an apology only, so offering a credit or discount is not allowed by policy.""
+}"
+S05,gemini,1,3,3,Fail,"The box arrived on the scheduled delivery day, which only calls for an apology, so offering a credit or discount violates policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The box arrived on the scheduled delivery day, which only calls for an apology, so offering a credit or discount violates policy.""
+}"
+G-missing_items-03,claude,3,2,3,Pass,"The reply states the 7-day window, the photo requirement, and the account-credit default with a card-refund option accurately, and invents nothing, but its commitment is conditional on the contact date and it never says the refund is being processed.","{
+  ""accuracy"": 3,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply states the 7-day window, the photo requirement, and the account-credit default with a card-refund option accurately, and invents nothing, but its commitment is conditional on the contact date and it never says the refund is being processed.""
+}"
+G-missing_items-03,gpt,3,3,3,Pass,"The reply correctly makes the refund conditional on reporting within 7 days, acknowledges the photo, and explains the available refund methods.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply correctly makes the refund conditional on reporting within 7 days, acknowledges the photo, and explains the available refund methods.""
+}"
+G-missing_items-03,gemini,1,2,3,Fail,The agent makes the refund conditional on the contact date rather than determining whether the report is eligible and either issuing the remedy or explaining why it cannot be granted.,"{
+  ""accuracy"": 1,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent makes the refund conditional on the contact date rather than determining whether the report is eligible and either issuing the remedy or explaining why it cannot be granted.""
+}
+"
+G-missing_items-05,claude,1,3,3,Fail,"The box was 3 days late (full credit owed) and the missing dressing was reported with a photo (credit owed), but the reply only vaguely says it will 'make sure both are addressed' without committing to either credit, which is an Accuracy 1 under rule C.","The box was due Monday and arrived Thursday, which is more than 1 day late, so the customer is owed full credit for the box. The missing sesame dressing is also covered: it was reported with a photo, so it gets account credit by default. The late-box credit is exempt from the $30 limit, and the dressing credit is small.
+
+The reply says ""I'll make sure both are addressed."" That is a vague deferral. It never commits to full credit for the late box or to credit for the dressing, and rule C treats vague deferral of an owed remedy as Accuracy 1 (""I'll help make it right"" is the worked example). It does correctly say the two issues are separate, but it names no remedy.
+
+Resolution: the customer asked whether this is two problems or one, and the reply answers that. The customer's implicit request is a remedy, and the reply gives no clear next step. It asks for no information and says nothing about the amount or form of credit. Rule A says not to lower Resolution for an error already scored under Accuracy, and the worked example for the same pattern gives Resolution 3. The reply does answer the question and says it will address both, so I'll give Resolution 2 or 3. The worked example's logic points to 3, and the reply does say what it will do, though vaguely. I'll go with 3 to avoid double counting.
+
+Tone is fine, short and warm: 3.
+
+Verdict: Fail, because of the Accuracy 1.
+
+{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""The box was 3 days late (full credit owed) and the missing dressing was reported with a photo (credit owed), but the reply only vaguely says it will 'make sure both are addressed' without committing to either credit, which is an Accuracy 1 under rule C.""}"
+G-missing_items-05,gpt,1,3,3,Fail,The reply correctly identifies two issues but does not commit to the full credit owed for the box arriving more than one day late.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply correctly identifies two issues but does not commit to the full credit owed for the box arriving more than one day late.""
+}"
+G-missing_items-05,gemini,1,2,3,Fail,"The customer is owed a full box credit for the late delivery and credit for the missing item, but the reply only vaguely promises to address them instead of issuing or committing to the remedies.","{
+  ""accuracy"": 1,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The customer is owed a full box credit for the late delivery and credit for the missing item, but the reply only vaguely promises to address them instead of issuing or committing to the remedies.""
+}"
+G-missing_items-08,claude,1,3,3,Fail,"The customer is owed only a credit or refund for the missing $3 crema, and the reply offers a replacement, which the policy doesn't include (clarification 4), so Accuracy is 1 and an automatic Fail; the reply also frames escalation of a full-box refund as possible when it isn't owed, but it clearly handles the request with next steps and reads warmly.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The customer is owed only a credit or refund for the missing $3 crema, and the reply offers a replacement, which the policy doesn't include (clarification 4), so Accuracy is 1 and an automatic Fail; the reply also frames escalation of a full-box refund as possible when it isn't owed, but it clearly handles the request with next steps and reads warmly.""
+}"
+G-missing_items-08,gpt,1,3,3,Fail,"The reply addresses the refund request and offers a clear next step, but it offers a replacement for the missing crema, which the policy does not permit.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply addresses the refund request and offers a clear next step, but it offers a replacement for the missing crema, which the policy does not permit.""
+}"
+G-missing_items-08,gemini,1,3,3,Fail,"The reply offers to send a replacement item, which is not a remedy provided under company policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply offers to send a replacement item, which is not a remedy provided under company policy.""
+}"
+G-allergy-04,claude,3,3,3,Pass,"Delivery is Thursday the 14th, so the skip cutoff is 11:59pm Pacific on Friday the 8th, and it is only 2pm that day, so the skip is allowed. The reply offers it, asks for the info it needs, makes no allergy safety claim, and is short and warm.","{""accuracy"":3,""resolution"":3,""tone"":3,""verdict"":""Pass"",""reason"":""Delivery is Thursday the 14th, so the skip cutoff is 11:59pm Pacific on Friday the 8th, and it is only 2pm that day, so the skip is allowed. The reply offers it, asks for the info it needs, makes no allergy safety claim, and is short and warm.""}"
+G-allergy-04,gpt,3,3,3,Pass,"The skip request is before the Friday 11:59pm Pacific cutoff, and the reply offers to process it once the customer provides account information.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The skip request is before the Friday 11:59pm Pacific cutoff, and the reply offers to process it once the customer provides account information.""
+}"
+G-allergy-04,gemini,2,3,3,Pass,"The agent correctly offers to process the skip before the cutoff, but fails to point the customer to the ingredient list and allergen label when an allergy is mentioned.","{
+  ""accuracy"": 2,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly offers to process the skip before the cutoff, but fails to point the customer to the ingredient list and allergen label when an allergy is mentioned.""
+}
+"
+G-not_covered-05,claude,3,3,3,Pass,"Changing the delivery location isn't covered by policy, so saying the agent will check and follow up is the required handling, with no invented policy or promised remedy.","Delivering to a different address (a work locker) isn't covered by the policy. The policy says that for matters it doesn't cover, agents must not invent policy and should say they will check and follow up, or escalate. The reply says it will check and follow up, which matches that rule. It doesn't promise delivery or offer any remedy that isn't in the policy.
+
+Under rubric rule B, ""I'll look into a credit"" is a problem only when no credit is owed. Here the agent is checking on a feature, not a remedy, and the policy explicitly allows ""say they will check and follow up."" So accuracy is 3.
+
+Resolution is 3 because the customer asked whether delivery to the locker is possible, and the reply gives a clear next step, which is to check and follow up.
+
+Tone is 3 because the reply is short, warm enough, and complete.
+
+{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""Changing the delivery location isn't covered by policy, so saying the agent will check and follow up is the required handling, with no invented policy or promised remedy.""
+}"
+G-not_covered-05,gpt,3,3,3,Pass,"The policy does not cover hospital locker deliveries, so checking and following up is appropriate and gives the customer a clear next step.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The policy does not cover hospital locker deliveries, so checking and following up is appropriate and gives the customer a clear next step.""
+}"
+G-not_covered-05,gemini,3,3,3,Pass,The agent correctly followed policy for a situation not explicitly covered by offering to check and follow up.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly followed policy for a situation not explicitly covered by offering to check and follow up.""
+}"
+G-credit_limit-03,claude,1,3,3,Fail,"The reply promises the full $34 credit on its own, which is over the $30 agent limit for missing items and should have been escalated with a 1-business-day reply window, and it also makes the required photos sound optional.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply promises the full $34 credit on its own, which is over the $30 agent limit for missing items and should have been escalated with a 1-business-day reply window, and it also makes the required photos sound optional.""
+}"
+G-credit_limit-03,gpt,1,3,3,Fail,The reply promises a $34 credit without the required supervisor escalation and treats the required photos as optional.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply promises a $34 credit without the required supervisor escalation and treats the required photos as optional.""
+}"
+G-credit_limit-03,gemini,1,3,3,Fail,The agent promised a $34 credit without escalating to a supervisor and waived the mandatory photo requirement for missing items.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent promised a $34 credit without escalating to a supervisor and waived the mandatory photo requirement for missing items.""
+}"
+G-late_box-10,claude,1,3,3,Fail,"The box was 4 days late, so the customer is owed full credit for that box, but the policy gives no card refund for a late box; the reply never commits to the credit and instead implies a Visa refund with 'I'll help with that' (rules B and C).","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The box was 4 days late, so the customer is owed full credit for that box, but the policy gives no card refund for a late box; the reply never commits to the credit and instead implies a Visa refund with 'I'll help with that' (rules B and C).""
+}"
+G-late_box-10,gpt,1,3,3,Fail,"A box four days late qualifies for full account credit, but the reply implies a refund to the customer’s Visa and does not commit to the credit owed.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""A box four days late qualifies for full account credit, but the reply implies a refund to the customer’s Visa and does not commit to the credit owed.""
+}"
+G-late_box-10,gemini,1,3,3,Fail,"The reply vaguely defers instead of clearly committing to the owed remedy, and late boxes are only eligible for account credit rather than a refund to the original payment method.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply vaguely defers instead of clearly committing to the owed remedy, and late boxes are only eligible for account credit rather than a refund to the original payment method.""
+}"
+G-skip_cancel-06,claude,3,3,2,Pass,"The reply correctly works out that the 3rd was the cutoff and that a cancellation on the 2nd was on time, then escalates with the required 1-business-day timeframe, but it spends a paragraph restating policy the customer didn't ask about, never apologizes, and reads a bit stiff.","{""accuracy"":3,""resolution"":3,""tone"":2,""verdict"":""Pass"",""reason"":""The reply correctly works out that the 3rd was the cutoff and that a cancellation on the 2nd was on time, then escalates with the required 1-business-day timeframe, but it spends a paragraph restating policy the customer didn't ask about, never apologizes, and reads a bit stiff.""}"
+G-skip_cancel-06,gpt,3,3,3,Pass,"The cancellation on the 2nd met the cutoff for a box due on the 9th, and the reply appropriately escalates the unexplained charge with a clear follow-up timeframe.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The cancellation on the 2nd met the cutoff for a box due on the 9th, and the reply appropriately escalates the unexplained charge with a clear follow-up timeframe.""
+}"
+G-skip_cancel-06,gemini,3,3,3,Pass,The agent accurately explained the cancellation cutoff and appropriately escalated the unexpected billing issue to a supervisor with the required one-business-day timeframe.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent accurately explained the cancellation cutoff and appropriately escalated the unexpected billing issue to a supervisor with the required one-business-day timeframe.""
+}"
+S04,claude,3,3,2,Pass,"The box was due yesterday and arrived at 10am today, which is under 1 day late, so an apology with no credit is correct and clearly explained; the repeated apology and the unrequested paragraph on other cases make it slightly wordy, which lowers Tone to 2.","{""accuracy"":3,""resolution"":3,""tone"":2,""verdict"":""Pass"",""reason"":""The box was due yesterday and arrived at 10am today, which is under 1 day late, so an apology with no credit is correct and clearly explained; the repeated apology and the unrequested paragraph on other cases make it slightly wordy, which lowers Tone to 2.""}"
+S04,gpt,3,3,2,Pass,"The reply correctly explains that no credit is owed and answers the question, but repeats the apology and adds an unnecessary paragraph about other issues.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply correctly explains that no credit is owed and answers the question, but repeats the apology and adds an unnecessary paragraph about other issues.""
+}"
+S04,gemini,3,3,3,Pass,"The reply accurately applies the lateness policy, clearly explains why credit is not owed for a box arriving less than one day late, and maintains a polite and helpful tone.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply accurately applies the lateness policy, clearly explains why credit is not owed for a box arriving less than one day late, and maintains a polite and helpful tone.""
+}"
+S24,claude,3,3,3,Pass,"The policy doesn't cover referral programs, so saying the agent will check and follow up is the correct handling; the reply invents no policy, answers the question, gives a clear next step, and is short and warm.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The policy doesn't cover referral programs, so saying the agent will check and follow up is the correct handling; the reply invents no policy, answers the question, gives a clear next step, and is short and warm.""
+}"
+S24,gpt,3,3,3,Pass,"Because the referral program is not covered by policy, the agent appropriately says they will check and follow up without inventing a benefit.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""Because the referral program is not covered by policy, the agent appropriately says they will check and follow up without inventing a benefit.""
+}"
+S24,gemini,3,3,3,Pass,The agent correctly followed policy for an uncovered topic by stating they would check and follow up rather than inventing details.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly followed policy for an uncovered topic by stating they would check and follow up rather than inventing details.""
+}"
+G-missing_items-04,claude,3,3,3,Pass,"The $43.50 refund for missing items is over the $30 agent limit, so escalating to a supervisor with a reply within 1 business day is correct, and the reply honors the card-refund request, asks only for routine details, and is warm and concise.","{""accuracy"":3,""resolution"":3,""tone"":3,""verdict"":""Pass"",""reason"":""The $43.50 refund for missing items is over the $30 agent limit, so escalating to a supervisor with a reply within 1 business day is correct, and the reply honors the card-refund request, asks only for routine details, and is warm and concise.""}"
+G-missing_items-04,gpt,2,3,3,Pass,"The reply correctly escalates the $43.50 card-refund request and gives the required timeframe, but it assumes the customer attached photos when they only said they have them.","{
+  ""accuracy"": 2,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply correctly escalates the $43.50 card-refund request and gives the required timeframe, but it assumes the customer attached photos when they only said they have them.""
+}"
+G-missing_items-04,gemini,3,3,3,Pass,"The agent correctly followed policy by requesting the photos, honoring the request for a refund to the original payment method, and escalating the $43.50 claim to a supervisor with the required one-business-day timeframe.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly followed policy by requesting the photos, honoring the request for a refund to the original payment method, and escalating the $43.50 claim to a supervisor with the required one-business-day timeframe.""
+}"
+S21,claude,1,3,2,Fail,"The reply issued a $45 refund plus a $20 goodwill credit ($65 total) without escalating, exceeding the $30 agent limit for missing items, and the extra $20 credit is an invented remedy; the reply is also somewhat wordy and repeats apologies.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply issued a $45 refund plus a $20 goodwill credit ($65 total) without escalating, exceeding the $30 agent limit for missing items, and the extra $20 credit is an invented remedy; the reply is also somewhat wordy and repeats apologies.""
+}"
+S21,gpt,1,3,2,Fail,"The reply resolves the missing-meals request but issues $65 without the required escalation, refunds to the original payment method without a request, and is unnecessarily wordy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply resolves the missing-meals request but issues $65 without the required escalation, refunds to the original payment method without a request, and is unnecessarily wordy.""
+}"
+S21,gemini,1,3,3,Fail,"The agent issued $65 in refunds and extra compensation without escalating to a supervisor, violating the $30 limit and offering remedies not permitted by policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent issued $65 in refunds and extra compensation without escalating to a supervisor, violating the $30 limit and offering remedies not permitted by policy.""
+}"
+G-spoiled_box-04,claude,1,3,2,Fail,"The full refund for the warm box is correct, but the free replacement box with expedited shipping is not a remedy in the policy (clarification 4, rule B), so Accuracy is 1 and the reply fails; Tone is 2 because the reply is wordy and repeats its apologies.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The full refund for the warm box is correct, but the free replacement box with expedited shipping is not a remedy in the policy (clarification 4, rule B), so Accuracy is 1 and the reply fails; Tone is 2 because the reply is wordy and repeats its apologies.""
+}"
+G-spoiled_box-04,gpt,1,3,2,Fail,"The full refund and apology address the warm, same-day-late box, but the free replacement box is not a policy remedy, and the reply is unnecessarily wordy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The full refund and apology address the warm, same-day-late box, but the free replacement box is not a policy remedy, and the reply is unnecessarily wordy.""
+}"
+G-spoiled_box-04,gemini,1,3,3,Fail,"The agent offered a free replacement box with expedited shipping, which is a remedy not permitted under company policy.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent offered a free replacement box with expedited shipping, which is a remedy not permitted under company policy.""
+}"
+G-late_box-11,claude,3,3,3,Pass,"The box arrived after 8pm Tuesday, which is more than 1 day late for a Monday delivery, and the reply correctly apologizes and commits to full credit for that box.","Due Monday, so lateness counts from 8pm Monday. More than 1 day late means arriving after 8pm Tuesday. The box arrived Tuesday at 11pm, which is after 8pm Tuesday, so it is more than 1 day late and full credit is owed.
+
+The reply says the customer is right, apologizes, and says they are eligible for full credit for that box. That commits to the credit. It does not say how or when the credit will be applied, and it asks for no order number. The customer asked what the agent can do, and the reply answers that. ""You're eligible"" is a clear enough commitment, and no further information is required to act on it.
+
+Accuracy is 3, because the reply correctly identifies that full credit is owed. Resolution is probably 3. The next step is slightly implicit, since it does not say ""I'll apply it,"" but the rubric treats a commitment as sufficient. ""You're eligible for full credit"" is close to a commitment, though a stricter reading could call it a statement of eligibility rather than an action. The rubric's example is ""I'll apply full credit for that box as soon as I have your order number."" Here the eligibility statement tells the customer what they get, and no information is requested. I'll keep Resolution at 3, though a 2 could be argued. Tone is 3: short, warm enough, and complete.
+
+{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The box arrived after 8pm Tuesday, which is more than 1 day late for a Monday delivery, and the reply correctly apologizes and commits to full credit for that box.""
+}"
+G-late_box-11,gpt,1,3,3,Fail,"The box qualifies for full credit, but saying the customer is eligible does not give the credit or clearly commit to applying it.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The box qualifies for full credit, but saying the customer is eligible does not give the credit or clearly commit to applying it.""
+}"
+G-late_box-11,gemini,1,2,3,Fail,"The customer is owed a full credit for a box more than one day late, but the reply only states eligibility rather than giving or clearly committing to the credit.","{
+  ""accuracy"": 1,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The customer is owed a full credit for a box more than one day late, but the reply only states eligibility rather than giving or clearly committing to the credit.""
+}"
+S02,claude,3,3,3,Pass,"The reply correctly states the 8am–8pm delivery window on the chosen day, makes no invented offers, and gives the customer what they need to plan for someone being home.","{""accuracy"":3,""resolution"":3,""tone"":3,""verdict"":""Pass"",""reason"":""The reply correctly states the 8am–8pm delivery window on the chosen day, makes no invented offers, and gives the customer what they need to plan for someone being home.""}"
+S02,gpt,3,2,3,Fail,The reply gives the correct delivery window but does not answer or offer to check whether someone must be home.,"{
+  ""accuracy"": 3,
+  ""resolution"": 2,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply gives the correct delivery window but does not answer or offer to check whether someone must be home.""
+}"
+S02,gemini,3,3,3,Pass,The reply accurately explains the 8am to 8pm local delivery window and clearly addresses the customer's question about needing someone to be home.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply accurately explains the 8am to 8pm local delivery window and clearly addresses the customer's question about needing someone to be home.""
+}"
+G-damaged_items-04,claude,1,3,3,Fail,"The reply issues a $47 refund for damaged items without asking for the required photo and without escalating to a supervisor, which breaks the $30 agent limit and waives the photo requirement. It also claims to have flagged the issue with a shipping partner, which the agent cannot verify.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply issues a $47 refund for damaged items without asking for the required photo and without escalating to a supervisor, which breaks the $30 agent limit and waives the photo requirement. It also claims to have flagged the issue with a shipping partner, which the agent cannot verify.""
+}"
+G-damaged_items-04,gpt,1,3,3,Fail,The reply promises a $47 refund for damaged meals without the required photo or supervisor escalation for an amount over $30.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply promises a $47 refund for damaged meals without the required photo or supervisor escalation for an amount over $30.""
+}"
+G-damaged_items-04,gemini,1,3,3,Fail,The agent processed a $47 refund without escalating to a supervisor for amounts over $30 and waived the photo requirement for damaged items.,"{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The agent processed a $47 refund without escalating to a supervisor for amounts over $30 and waived the photo requirement for damaged items.""
+}"
+G-skip_cancel-03,claude,3,3,3,Pass,"The skip cutoff for the 22nd is 11:59pm Pacific on the 16th, which is 1:59am Chicago time on the 17th, so the reply correctly says it is not too late, answers the question, and tells the customer to submit the skip before then.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The skip cutoff for the 22nd is 11:59pm Pacific on the 16th, which is 1:59am Chicago time on the 17th, so the reply correctly says it is not too late, answers the question, and tells the customer to submit the skip before then.""
+}"
+G-skip_cancel-03,gpt,3,3,3,Pass,"The cutoff and time conversion are correct, and the reply clearly tells the customer to submit the skip before the deadline.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The cutoff and time conversion are correct, and the reply clearly tells the customer to submit the skip before the deadline.""
+}"
+G-skip_cancel-03,gemini,3,3,3,Pass,The agent accurately calculated the skip cutoff time for the customer's local time zone and provided clear next steps.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent accurately calculated the skip cutoff time for the customer's local time zone and provided clear next steps.""
+}"
+G-not_covered-02,claude,3,3,3,Pass,"Discounts are not covered by the policy, so saying the agent will check and follow up is the required handling, and the reply makes no invented promise, is short and clear, and gives a next step.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""Discounts are not covered by the policy, so saying the agent will check and follow up is the required handling, and the reply makes no invented promise, is short and clear, and gives a next step.""
+}"
+G-not_covered-02,gpt,3,3,3,Pass,"Teacher discounts are not covered by the policy, so checking with the team and following up is an accurate and clear response.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""Teacher discounts are not covered by the policy, so checking with the team and following up is an accurate and clear response.""
+}"
+G-not_covered-02,gemini,3,3,3,Pass,The agent correctly followed policy for an uncovered topic by stating they would check with the team and follow up.,"{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The agent correctly followed policy for an uncovered topic by stating they would check with the team and follow up.""
+}"
+G-allergy-09,claude,3,3,2,Pass,"The reply makes no allergy safety claim and points to the ingredient list and allergen label. It says it will check on the swap and follow up, which is correct because swaps aren't in the policy. The skip/cancel cutoff statement is accurate, since the 6-day cutoff was the 10th. The customer didn't ask about skipping, so including it makes the reply wordier than needed and costs a point on Tone.","{""accuracy"":3,""resolution"":3,""tone"":2,""verdict"":""Pass"",""reason"":""The reply makes no allergy safety claim and points to the ingredient list and allergen label. It says it will check on the swap and follow up, which is correct because swaps aren't in the policy. The skip/cancel cutoff statement is accurate, since the 6-day cutoff was the 10th. The customer didn't ask about skipping, so including it makes the reply wordier than needed and costs a point on Tone.""}"
+G-allergy-09,gpt,3,3,2,Pass,"The reply correctly handles the allergy concern and promises to check and follow up about the swap, but the unsolicited skip-and-cancel explanation makes it longer than needed.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply correctly handles the allergy concern and promises to check and follow up about the swap, but the unsolicited skip-and-cancel explanation makes it longer than needed.""
+}"
+G-allergy-09,gemini,3,3,3,Pass,"The reply correctly handles the allergy guidelines by referring to the labels without making safety claims, notes the passed cutoff deadline, and follows policy by checking and following up on the meal swap request.","{
+  ""accuracy"": 3,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Pass"",
+  ""reason"": ""The reply correctly handles the allergy guidelines by referring to the labels without making safety claims, notes the passed cutoff deadline, and follows policy by checking and following up on the meal swap request.""
+}"
+G-delivery_window-02,claude,1,3,3,Fail,"The box was due Monday and arrived Wednesday, so it was more than 1 day late (after 8pm Tuesday) and full credit is owed, but the reply only says ""I can check on a credit"" instead of committing to full credit for the box (rule C).","{""accuracy"":1,""resolution"":3,""tone"":3,""verdict"":""Fail"",""reason"":""The box was due Monday and arrived Wednesday, so it was more than 1 day late (after 8pm Tuesday) and full credit is owed, but the reply only says \""I can check on a credit\"" instead of committing to full credit for the box (rule C).""}"
+G-delivery_window-02,gpt,1,3,3,Fail,"The Wednesday arrival entitles the customer to full credit, but the reply only offers to check on a credit rather than committing to it.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The Wednesday arrival entitles the customer to full credit, but the reply only offers to check on a credit rather than committing to it.""
+}"
+G-delivery_window-02,gemini,1,3,3,Fail,"The customer is entitled to a full credit for a box that arrived two days late, but the agent only offered to check on a credit instead of committing to it.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 3,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The customer is entitled to a full credit for a box that arrived two days late, but the agent only offered to check on a credit instead of committing to it.""
+}"
+S16,claude,2,2,2,Fail,"The reply leaves template placeholder text ('[Insert Day/Time...]') where the cutoff should be and describes a fixed weekly cutoff instead of the policy's 11:59pm Pacific, 6 days before delivery day, so the charge question is left unanswered and it can't be sent as written.","{
+  ""accuracy"": 2,
+  ""resolution"": 2,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply leaves template placeholder text ('[Insert Day/Time...]') where the cutoff should be and describes a fixed weekly cutoff instead of the policy's 11:59pm Pacific, 6 days before delivery day, so the charge question is left unanswered and it can't be sent as written.""
+}"
+S16,gpt,1,3,2,Fail,"The unfilled example replaces the actual cancellation cutoff of 11:59 p.m. Pacific, six days before delivery, so the customer could be misled about whether next week’s box will be charged.","{
+  ""accuracy"": 1,
+  ""resolution"": 3,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The unfilled example replaces the actual cancellation cutoff of 11:59 p.m. Pacific, six days before delivery, so the customer could be misled about whether next week’s box will be charged.""
+}"
+S16,gemini,2,2,2,Fail,"The reply leaves unedited template bracket text rather than providing the actual cutoff rule or details, requiring changes before it could ever be sent.","{
+  ""accuracy"": 2,
+  ""resolution"": 2,
+  ""tone"": 2,
+  ""verdict"": ""Fail"",
+  ""reason"": ""The reply leaves unedited template bracket text rather than providing the actual cutoff rule or details, requiring changes before it could ever be sent.""
+}"
