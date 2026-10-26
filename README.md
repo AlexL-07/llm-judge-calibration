@@ -31,11 +31,11 @@ analysis/    Notebook and SQL queries for agreement metrics and charts
 ## Status
 
 - [x] Policy and rubric v1 drafted
-- [ ] Dataset built
-- [ ] Round 1: gold labels, judge runs, analysis
-- [ ] Rubric v2 and changelog
-- [ ] Round 2: gold labels, judge runs, analysis
-- [ ] Writeup
+- [x] Dataset built
+- [x] Round 1: gold labels, judge runs, analysis
+- [x] Rubric v2 and changelog
+- [x] Round 2: gold labels, judge runs, analysis
+- [x] Writeup
 
 ## Running it
 
@@ -79,4 +79,12 @@ Known limitation: the message generator and the Claude judge come from the same 
 
 ## Results
 
-Coming after round 2.
+Verdict agreement with my gold labels (Cohen's kappa, averaged across the three judges) rose from **0.29 in round 1 to 0.80 in round 2**. Judging round 2 with both rubrics showed most of that gain came from clearer labels and items; the rubric changes alone lifted Accuracy kappa from 0.72 to 0.80, Tone kappa from 0.31 to 0.57, and every judge caught all 27 failing replies.
+
+| Judge | Round 1, rubric v1 | Round 2, rubric v1 | Round 2, rubric v2 |
+| --- | --- | --- | --- |
+| Claude | 0.38 | 0.80 | 0.88 |
+| GPT | 0.23 | 0.76 | 0.80 |
+| Gemini | 0.27 | 0.76 | 0.71 |
+
+Other findings: the judges caught 7 errors in my own round 1 labels, and Gemini scored Google-written replies more favorably in both rounds. See [writeup.md](writeup.md) for the full story, limitations and next steps.
